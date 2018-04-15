@@ -75,12 +75,12 @@ var Memory;
     }
     function main() {
         // Spieler soll Anzahl der Kartenpaare eingeben
-        numPairs = parseInt(prompt("W�hle die Anzahl der Kartenpaare!", "5 - 10 Kartenpaare"), 10);
+        numPairs = parseInt(prompt("Gib die Anzahl der Kartenpaare ein", "5 - 10 Kartenpaare"), 10);
         if (numPairs < 5 || numPairs > 10) {
             numPairs = 8;
         }
         // Spieler sollen angeben, wie viele spielen wollen
-        numPlayers = parseInt(prompt("W�hle die Anzahl der Spieler!", "nicht mehr als 4 Spieler"), 10);
+        numPlayers = parseInt(prompt("Gib die Anzahl der Spieler ein", "nicht mehr als 4 Spieler"), 10);
         numPlayers > 4 ? numPlayers = 4 : numPlayers = numPlayers;
         // DOM abh�ngige Variablen deklarieren
         playerInfo = document.getElementById("player-info");
