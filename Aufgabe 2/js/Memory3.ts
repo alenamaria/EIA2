@@ -5,7 +5,7 @@ Matrikel: (257742)
 Datum: (15.04.2018)
 
 Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde nicht kopiert und auch nicht diktiert.
-Dieser Code wurde in Zusammenarbeit mit Arbeitsgruppe GrÃ¼n unter Anleitung von Melvin Busch erstellt.
+Dieser Code wurde in Zusammenarbeit mit Arbeitsgruppe Grün unter Anleitung von Melvin Busch erstellt.
 */
 
 namespace Memory {
