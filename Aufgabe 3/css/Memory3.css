@@ -1,0 +1,108 @@
+/*
+Aufgabe: (Aufgabe 2 - Memory)
+Name: (Alena Hurst)
+Matrikel: (257742)
+Datum: (15.04.2018)
+
+Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde nicht kopiert und auch nicht diktiert.
+Dieser Code wurde in Zusammenarbeit mit Arbeitsgruppe Grün unter Anleitung von Melvin Busch erstellt.
+*/
+
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300');
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 16px;
+  background: #6E6E6E;
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 18px;
+}
+
+/* Spielinfo */
+
+#player-info {
+  height: 100vh;
+  width: 24%;
+  position: fixed;
+  left: 0;
+  top: 0;
+  background: lightgrey;
+  padding: 20px;
+  box-sizing: border-box;
+  box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.8);
+}
+
+#player-info h2 {
+  margin-bottom: 50px;
+}
+
+#player-info div {
+  margin-bottom: 40px;
+  text-align: center;
+}
+
+#player-info .player-name {
+  font-weight: bold;
+  color: #0071BC;
+}
+
+/* Spielbrett */
+
+#card-field {
+  height: auto;
+  max-width: 78%;
+  padding: 20px;
+  box-sizing: border-box;
+  margin-left: 20%;
+}
+
+#card-field h2 {
+  color: white;
+}
+
+#card-div {
+  position: relative;
+  height: auto;
+  width: 80%;
+  display: flex;
+  justify-content: right;
+  flex-wrap: wrap;
+}
+
+.card {
+  height: 175px;
+  width: 175px;
+  border-radius: 5px;
+  margin: 0px 20px 20px 0px;
+  text-align: center;
+  line-height: 175px;
+  position: relative;
+  background: white;
+}
+
+.hidden {
+    background: #005580; /*#005580*/
+    cursor: pointer;
+}
+
+.hidden div {
+    display: none;
+}
+
+.taken {
+    border: 2px solid rgba(0, 0, 0, 0.2);
+    background-color: #6E6E6E;
+    box-sizing: border-box;
+}
+
+.taken div {
+    display: none;
+}
