@@ -6,7 +6,7 @@ namespace Memory {
       Datum: 19.04.18
     
       Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde nicht kopiert und auch nicht diktiert.
-      Dieser Code wurde zusammen mit Franziska Heiss und Sofia Gschwend erarbeitet.
+      Dieser Code wurde zusammen mit Franziska Heiﬂ und Sofia Gschwend erarbeitet.
       */
 
     document.addEventListener("DOMContentLoaded", main);
