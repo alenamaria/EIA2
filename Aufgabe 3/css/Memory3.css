@@ -101,6 +101,7 @@ h2 {
     border: 2px solid rgba(0, 0, 0, 0.2);
     background-color: #6E6E6E;
     box-sizing: border-box;
+    pointer-events: none;
 }
 
 .taken div {
