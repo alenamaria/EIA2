@@ -50,7 +50,7 @@ namespace L04_Interfaces {
             let line: string = matrikel + ": ";
             line += studi.name + ", " + studi.firstname + ", " + studi.age + " Jahre ";
             line += studi.studyPath + ", ";                            // Studiengang ausgeben nach refresh drücken
-            line += studi.gender ? "(M)" : "(F)";
+            line += studi.gender ? "männlich" : "weiblich";
             output.value += line + "\n";
         }
     }
@@ -59,23 +59,23 @@ namespace L04_Interfaces {
         let studyMatrikel: HTMLInputElement = <HTMLInputElement>document.getElementById("matrikelNr");
         let output: HTMLTextAreaElement = <HTMLTextAreaElement>document.getElementById("textarea2");
         output.value = "";
+        let matrikel: number = parseInt((<HTMLInputElement>document.getElementById("matrikelNr")).value);
+        let studi: Studi = studiHomoAssoc[matrikel];
         
-        for (let matrikel in studiHomoAssoc) {
-            let studi: Studi = studiHomoAssoc[matrikel];
-            let line: string = matrikel + ": ";
-        
-        if (studyMatrikel.value == studi.matrikel.toString()) {
-            line += studi.name + ", " + studi.firstname + ", " + studi.age + " Jahre, ";
-            line += studi.studyPath + ", ";                            
-            line += studi.gender ? "(M)" : "(F)";
+        if (studyMatrikel.value == undefined) {
+            let line: string;
+            line += "Kein Suchergebnis gefunden";
             output.value += line + "\n";
         }
         
         else {
-            let result: string = "Kein weiteres Suchergebnis gefunden";
-            output.value += result + "\n";
+            let line: string = matrikel + ": ";
+            line += studi.name + ", " + studi.firstname + ", " + studi.age + " Jahre, ";
+            line += studi.studyPath + ", ";                            
+            line += studi.gender ? "männlich" : "weiblich";
+            output.value += line + "\n";
         }
-        }    
+    
     }
 
     // zusätzliche Konsolenausgaben zur Demonstration

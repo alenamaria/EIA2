@@ -41,7 +41,7 @@ var L04_Interfaces;
             let line = matrikel + ": ";
             line += studi.name + ", " + studi.firstname + ", " + studi.age + " Jahre ";
             line += studi.studyPath + ", "; // Studiengang ausgeben nach refresh dr�cken
-            line += studi.gender ? "(M)" : "(F)";
+            line += studi.gender ? "m�nnlich" : "weiblich";
             output.value += line + "\n";
         }
     }
@@ -49,19 +49,19 @@ var L04_Interfaces;
         let studyMatrikel = document.getElementById("matrikelNr");
         let output = document.getElementById("textarea2");
         output.value = "";
-        for (let matrikel in L04_Interfaces.studiHomoAssoc) {
-            let studi = L04_Interfaces.studiHomoAssoc[matrikel];
+        let matrikel = parseInt(document.getElementById("matrikelNr").value);
+        let studi = L04_Interfaces.studiHomoAssoc[matrikel];
+        if (studyMatrikel.value == undefined) {
+            let line;
+            line += "Kein Suchergebnis gefunden";
+            output.value += line + "\n";
+        }
+        else {
             let line = matrikel + ": ";
-            if (studyMatrikel.value == studi.matrikel.toString()) {
-                line += studi.name + ", " + studi.firstname + ", " + studi.age + " Jahre, ";
-                line += studi.studyPath + ", ";
-                line += studi.gender ? "(M)" : "(F)";
-                output.value += line + "\n";
-            }
-            else {
-                let result = "Kein weiteres Suchergebnis gefunden";
-                output.value += result + "\n";
-            }
+            line += studi.name + ", " + studi.firstname + ", " + studi.age + " Jahre, ";
+            line += studi.studyPath + ", ";
+            line += studi.gender ? "m�nnlich" : "weiblich";
+            output.value += line + "\n";
         }
     }
     // zus�tzliche Konsolenausgaben zur Demonstration
