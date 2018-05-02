@@ -1,3 +1,12 @@
+/*    Aufgabe: Aufgabe 2 - Memory
+      Name: Alena Hurst
+      Matrikel: 257742
+      Datum: 19.04.18
+    
+      Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde nicht kopiert und auch nicht diktiert.
+      Dieser Code wurde zusammen mit Franziska Heiﬂ und Sofia Gschwend erarbeitet.
+*/
+
 namespace L04_Interfaces {
     
     window.addEventListener("load", init);
