@@ -56,16 +56,13 @@ namespace L04_Interfaces {
     }
 
     function search(_event: Event): void {
-        let studyMatrikel: HTMLInputElement = <HTMLInputElement>document.getElementById("matrikelNr");
         let output: HTMLTextAreaElement = <HTMLTextAreaElement>document.getElementById("textarea2");
         output.value = "";
         let matrikel: number = parseInt((<HTMLInputElement>document.getElementById("matrikelNr")).value);
         let studi: Studi = studiHomoAssoc[matrikel];
         
-        if (studyMatrikel.value == undefined) {
-            let line: string;
-            line += "Kein Suchergebnis gefunden";
-            output.value += line + "\n";
+        if (typeof studi === "undefined") {
+            output.value += "Kein Suchergebnis gefunden";
         }
         
         else {

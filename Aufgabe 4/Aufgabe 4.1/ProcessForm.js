@@ -46,15 +46,12 @@ var L04_Interfaces;
         }
     }
     function search(_event) {
-        let studyMatrikel = document.getElementById("matrikelNr");
         let output = document.getElementById("textarea2");
         output.value = "";
         let matrikel = parseInt(document.getElementById("matrikelNr").value);
         let studi = L04_Interfaces.studiHomoAssoc[matrikel];
-        if (studyMatrikel.value == undefined) {
-            let line;
-            line += "Kein Suchergebnis gefunden";
-            output.value += line + "\n";
+        if (typeof studi === "undefined") {
+            output.value += "Kein Suchergebnis gefunden";
         }
         else {
             let line = matrikel + ": ";
