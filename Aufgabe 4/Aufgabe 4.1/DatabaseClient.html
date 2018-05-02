@@ -9,10 +9,12 @@
 </head>
 <body>
 	<fieldset id="input">
+	
 		<legend> Type student data here </legend>
 		<input type="text" name="name" placeholder="Name"/>
 		<input type="text" name="firstname" placeholder="Firstname"/>	
 		<input type="text" name="matrikel" placeholder="Registration Number"/>
+		
 		Select your study path:
 		<select name="studypath" id="select">
 			<optgroup label="Fakultät Digitale Medien"></optgroup>
@@ -20,6 +22,7 @@
 			<option value="Medieninformatik">Medieninformatik</option>
 			<option value="Online Medien">OnlineMedien</option>
 		</select>
+		
 		<input type="number" name="age" placeholder="Age" min="1" max="120"/>
 		<br>
 		<input type="radio" name="gender" value="male" id="male"/>
@@ -27,17 +30,24 @@
 		<input type="radio" name="gender" value="female" id="female"/>
 		<label for="female">Female</label>
 		<button type="button" id="insert">Insert to database</button>
+		
 	</fieldset>
+	
 	<fieldset id="output">
+	
 		<legend> All student data </legend>
 		<button type="button" id="refresh">Refresh</button>
 		<textarea rows="10" cols="90"> </textarea>
+		
 	</fieldset>
+	
 	<fieldset id="search">
+	
 		<legend>Search by registration number</legend>
 		<input type="text" name="search" placeholder="Registration Number" id="matrikelNr"/>
 		<button type="button" id="searchButton">Search</button>
 		<textarea rows="10" cols="90" id="textarea2"> </textarea>
+		
 	</fieldset>
 </body>
 </html>

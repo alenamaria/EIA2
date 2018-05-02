@@ -10,8 +10,8 @@ namespace L04_Interfaces {
     }
 
     // Struktur des homogenen assoziativen Arrays, bei dem ein Datensatz der Matrikelnummer zugeordnet ist
-    export interface Studis {
-         [matrikel: string]: Studi;
+    export interface Studis { // Datentyp ist nur Studi => nur ein einziger Datentyp - homogenes assoziatives Array
+         [matrikel: string]: Studi; // einzelne Studenten werden mit der Matrikelnummer als Schlüssel gespeichert
     }
 
     // Simples Array zum Speichern der Studi-Datensätze (nur zur Demonstration)
