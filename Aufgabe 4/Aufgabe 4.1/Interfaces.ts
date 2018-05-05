@@ -1,3 +1,12 @@
+/*    Aufgabe: Aufgabe 2 - Memory
+      Name: Alena Hurst
+      Matrikel: 257742
+      Datum: 02.05.18
+    
+      Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde nicht kopiert und auch nicht diktiert.
+      Dieser Code wurde zusammen mit Franziska Heiﬂ und Sofia Gschwend erarbeitet.
+*/
+
 namespace L04_Interfaces {
     // Struktur des heterogenen assoziativen Arrays als Datensatz f√ºr eine studierende Person
     export interface Studi {
