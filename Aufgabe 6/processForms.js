@@ -1,9 +1,11 @@
-/*    Aufgabe: Aufgabe 6
-      Name: Alena Hurst
-      Matrikel: 257742
-      Datum: 25.05.18
-    
-      Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde nicht kopiert und auch nicht diktiert.
+/*
+Aufgabe: Aufgabe 6
+Name: Alena Hurst
+Matrikel: 257742
+Datum: 25.05.18
+
+Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe.
+Er wurde nicht kopiert und auch nicht diktiert.
 */
 var Aufgabe6;
 (function (Aufgabe6) {
