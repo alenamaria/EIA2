@@ -49,7 +49,7 @@ namespace Aufgabe8 {
         console.log(stringifyJSON);
 
         let xhr: XMLHttpRequest = new XMLHttpRequest();
-        xhr.open("GET", address + "?order=insert&data=" + stringifyJSON, true);
+        xhr.open("GET", address + "?command=insert&data=" + stringifyJSON, true);
         // "GET": Methode, mit der Daten versendet werden
         // address: Internetaddresse vom Datentyp string (zuvor in einer Varaible gespeichert)
         // ?order=insert&data=: wird an die Internetaddresse angehängt
@@ -71,7 +71,7 @@ namespace Aufgabe8 {
     
     function refresh(_event: Event): void {
         let xhr: XMLHttpRequest = new XMLHttpRequest();
-        xhr.open("GET", address + "?order=refresh", true);
+        xhr.open("GET", address + "?command=refresh", true);
         // "GET": Methode, mit der Daten versendet werden
         // address: Internetaddresse vom Datentyp string (zuvor in einer Varaible gespeichert)
         // ?order=refresh: wird an die Internetaddresse angehängt
@@ -98,7 +98,7 @@ namespace Aufgabe8 {
         // Variable für die Matrikelnummer anlegen
         
         let xhr: XMLHttpRequest = new XMLHttpRequest();
-        xhr.open("GET", address + "?order=search&searchFor=" + matrikel, true);
+        xhr.open("GET", address + "?command=search&searchFor=" + matrikel, true);
         // "GET": Methode, mit der Daten versendet werden
         // address: Internetaddresse vom Datentyp string (zuvor in einer Varaible gespeichert)
         // ?order=search&searchFor: wird an die Internetaddresse angehängt

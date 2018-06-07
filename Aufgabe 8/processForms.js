@@ -40,7 +40,7 @@ var Aufgabe8;
         // JavaScript-JSON-Objekt wird in einen string umgewandelt
         console.log(stringifyJSON);
         let xhr = new XMLHttpRequest();
-        xhr.open("GET", address + "?order=insert&data=" + stringifyJSON, true);
+        xhr.open("GET", address + "?command=insert&data=" + stringifyJSON, true);
         // "GET": Methode, mit der Daten versendet werden
         // address: Internetaddresse vom Datentyp string (zuvor in einer Varaible gespeichert)
         // ?order=insert&data=: wird an die Internetaddresse angeh�ngt
@@ -59,7 +59,7 @@ var Aufgabe8;
     }
     function refresh(_event) {
         let xhr = new XMLHttpRequest();
-        xhr.open("GET", address + "?order=refresh", true);
+        xhr.open("GET", address + "?command=refresh", true);
         // "GET": Methode, mit der Daten versendet werden
         // address: Internetaddresse vom Datentyp string (zuvor in einer Varaible gespeichert)
         // ?order=refresh: wird an die Internetaddresse angeh�ngt
@@ -82,7 +82,7 @@ var Aufgabe8;
         let matrikel = inputs[6].value;
         // Variable f�r die Matrikelnummer anlegen
         let xhr = new XMLHttpRequest();
-        xhr.open("GET", address + "?order=search&searchFor=" + matrikel, true);
+        xhr.open("GET", address + "?command=search&searchFor=" + matrikel, true);
         // "GET": Methode, mit der Daten versendet werden
         // address: Internetaddresse vom Datentyp string (zuvor in einer Varaible gespeichert)
         // ?order=search&searchFor: wird an die Internetaddresse angeh�ngt
