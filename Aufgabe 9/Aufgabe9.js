@@ -5,6 +5,7 @@ var Aufgabe9;
     function init(_event) {
         let canvas = document.getElementsByTagName("canvas")[0];
         crc2 = canvas.getContext("2d");
+        // Aufruf der Funktionen
         background();
         drawBigSeaGrass(700, 550);
         drawBigSeaGrass(300, 570);
@@ -15,8 +16,9 @@ var Aufgabe9;
         drawBigSeaGrass(65, 720);
         drawSmallSeaGrass(45, 800);
         //drawBubble();
-        drawChest();
-        drawAnchor();
+        drawChest(700, 500);
+        drawAnchor(670, 520);
+        // For-Schleifen f�r die Luftblasen
         for (let i = 0; i < 16; i++) {
             let v = Math.random() * (700 - 750) + 750;
             let w = Math.random() * 500;
@@ -35,12 +37,20 @@ var Aufgabe9;
             let r = Math.random() * 8; // Radius
             drawBubble(v, w, r);
         }
+        // For-Schleife f�r die gro�en Fische
         for (let i = 0; i < 7; i++) {
             let x = Math.random() * crc2.canvas.width;
             let y = Math.random() * crc2.canvas.height;
             drawFish(x, y);
         }
+        // For-Schleife f�r die kleinen Fische
+        for (let i = 0; i < 5; i++) {
+            let x = Math.random() * crc2.canvas.width;
+            let y = Math.random() * crc2.canvas.height;
+            drawLittleFish(x, y);
+        }
     }
+    // Hintergrund - Wasser
     function background() {
         let gradient = crc2.createLinearGradient(0, 0, 0, 500);
         gradient.addColorStop(0, "#bde8dc");
@@ -48,6 +58,7 @@ var Aufgabe9;
         crc2.fillStyle = gradient;
         crc2.fillRect(0, 0, 1000, 700);
     }
+    // Fische mit Farbverlauf
     function drawFish(_x, _y) {
         let gradient = crc2.createLinearGradient(300, 550, 300, 500);
         gradient.addColorStop(0, "#10938d");
@@ -61,10 +72,25 @@ var Aufgabe9;
         crc2.lineTo(_x + 130, _y - 25);
         crc2.lineTo(_x + 100, _y);
         crc2.quadraticCurveTo(_x + 45, _y - 50, _x, _y);
+        crc2.fill();
         crc2.strokeStyle = "transparent";
         crc2.stroke();
-        crc2.fill();
     }
+    function drawLittleFish(_x, _y) {
+        crc2.fillStyle = "#682b2b";
+        crc2.beginPath();
+        crc2.moveTo(_x, _y);
+        crc2.quadraticCurveTo(_x + 25, _y + 50, _x + 80, _y);
+        crc2.lineTo(_x + 110, _y + 25);
+        crc2.lineTo(_x + 100, _y);
+        crc2.lineTo(_x + 110, _y - 25);
+        crc2.lineTo(_x + 80, _y);
+        crc2.quadraticCurveTo(_x + 25, _y - 50, _x, _y);
+        crc2.fill();
+        crc2.strokeStyle = "transparent";
+        crc2.stroke();
+    }
+    // Luftblasen
     function drawBubble(_x, _y, _r) {
         crc2.fillStyle = "rgb(206, 220, 226, 0.6)";
         crc2.beginPath();
@@ -74,6 +100,7 @@ var Aufgabe9;
         crc2.strokeStyle = "transparent";
         crc2.stroke();
     }
+    // Meeresboden - Sand
     function drawSand() {
         let gradient = crc2.createLinearGradient(300, 700, 300, 500);
         gradient.addColorStop(0, "#cc9933");
@@ -93,14 +120,15 @@ var Aufgabe9;
         crc2.strokeStyle = "rgb(204,153,51)";
         crc2.stroke();
     }
-    function drawChest() {
+    // Truhe
+    function drawChest(_x, _y) {
         // Part 1
         crc2.fillStyle = "rgb(109, 77, 35)";
         crc2.beginPath();
-        crc2.moveTo(700, 500);
-        crc2.lineTo(700, 550);
-        crc2.lineTo(750, 550);
-        crc2.lineTo(750, 500);
+        crc2.moveTo(_x, _y); //700, 560
+        crc2.lineTo(_x, _y + 50);
+        crc2.lineTo(_x + 50, _y + 50);
+        crc2.lineTo(_x + 50, _y);
         crc2.closePath();
         crc2.fill();
         crc2.strokeStyle = "transparent";
@@ -108,10 +136,10 @@ var Aufgabe9;
         // Part 2
         crc2.fillStyle = "rgb(89, 63, 29)";
         crc2.beginPath();
-        crc2.moveTo(800, 600);
-        crc2.lineTo(750, 550);
-        crc2.lineTo(750, 500);
-        crc2.lineTo(800, 550);
+        crc2.moveTo(_x + 100, _y + 100);
+        crc2.lineTo(_x + 50, _y + 50);
+        crc2.lineTo(_x + 50, _y);
+        crc2.lineTo(_x + 100, _y + 50);
         crc2.closePath();
         crc2.fill();
         crc2.strokeStyle = "transparent";
@@ -119,10 +147,10 @@ var Aufgabe9;
         // Part 3
         crc2.fillStyle = "rgb(130, 89, 36)";
         crc2.beginPath();
-        crc2.moveTo(700, 500);
-        crc2.lineTo(700, 550);
-        crc2.lineTo(750, 600);
-        crc2.lineTo(750, 550);
+        crc2.moveTo(_x, _y);
+        crc2.lineTo(_x, _y + 50);
+        crc2.lineTo(_x + 50, _y + 100);
+        crc2.lineTo(_x + 50, _y + 50);
         crc2.closePath();
         crc2.fill();
         crc2.strokeStyle = "transparent";
@@ -130,68 +158,71 @@ var Aufgabe9;
         // Part 4
         crc2.fillStyle = "rgb(142, 100, 45)";
         crc2.beginPath();
-        crc2.moveTo(750, 550);
-        crc2.lineTo(800, 550);
-        crc2.lineTo(800, 600);
-        crc2.lineTo(750, 600);
+        crc2.moveTo(_x + 50, _y + 50);
+        crc2.lineTo(_x + 100, _y + 50);
+        crc2.lineTo(_x + 100, _y + 100);
+        crc2.lineTo(_x + 50, _y + 100);
         crc2.closePath();
         crc2.fill();
         crc2.strokeStyle = "transparent";
         crc2.stroke();
-        // Part 5
+        // Part 5 
         crc2.fillStyle = "rgb(114, 81, 39)";
         crc2.beginPath();
-        crc2.moveTo(800, 550);
-        crc2.lineTo(825, 510);
-        crc2.lineTo(775, 460);
-        crc2.lineTo(750, 500);
+        crc2.moveTo(_x + 100, _y + 50);
+        crc2.lineTo(_x + 125, _y + 10);
+        crc2.lineTo(_x + 75, _y - 40);
+        crc2.lineTo(_x + 50, _y);
         crc2.closePath();
         crc2.fill();
         crc2.strokeStyle = "transparent";
         crc2.stroke();
-        // Deckel 3D - vorne
+        // Deckel 3D-W�lbung - vorne        
         crc2.fillStyle = "rgb(142, 100, 45)";
         crc2.beginPath();
-        crc2.moveTo(800, 550);
-        crc2.quadraticCurveTo(830, 540, 825, 510);
+        crc2.moveTo(_x + 100, _y + 50);
+        crc2.quadraticCurveTo(_x + 130, _y + 40, _x + 125, _y + 10);
         crc2.closePath();
         crc2.fill();
         crc2.strokeStyle = "transparent";
         crc2.stroke();
-        // Deckel 3D - hinten
+        // Deckel 3D-W�lbung - hinten        
         crc2.fillStyle = "rgb(99, 72, 36)";
         crc2.beginPath();
-        crc2.moveTo(750, 500);
-        crc2.quadraticCurveTo(780, 490, 775, 460);
+        crc2.moveTo(_x + 50, _y);
+        crc2.quadraticCurveTo(_x + 80, _y - 10, _x + 75, _y - 40);
         crc2.closePath();
         crc2.fill();
         crc2.strokeStyle = "transparent";
         crc2.stroke();
     }
-    function drawAnchor() {
+    // Anker
+    function drawAnchor(_x, _y) {
         crc2.fillStyle = "#282c2d";
         crc2.beginPath();
-        crc2.moveTo(670, 520);
-        crc2.lineTo(670, 550);
-        crc2.quadraticCurveTo(655, 570, 640, 550);
-        crc2.lineTo(635, 555);
-        crc2.quadraticCurveTo(670, 585, 710, 555);
-        crc2.lineTo(705, 550);
-        crc2.quadraticCurveTo(690, 570, 675, 550);
-        crc2.lineTo(675, 520);
-        crc2.lineTo(680, 520);
-        crc2.lineTo(680, 515);
-        crc2.lineTo(675, 515);
-        crc2.lineTo(675, 510);
-        crc2.lineTo(670, 510);
-        crc2.lineTo(670, 515);
-        crc2.lineTo(665, 515);
-        crc2.lineTo(665, 520);
+        // x=50 und y=50
+        crc2.moveTo(_x, _y);
+        crc2.lineTo(_x, _y + 30);
+        crc2.quadraticCurveTo(_x - 15, _y + 50, _x - 30, _y + 30);
+        crc2.lineTo(_x - 35, _y + 35);
+        crc2.quadraticCurveTo(_x, _y + 65, _x + 40, _y + 35);
+        crc2.lineTo(_x + 35, _y + 30);
+        crc2.quadraticCurveTo(_x + 20, _y + 50, _x + 5, _y + 30);
+        crc2.lineTo(_x + 5, _y);
+        crc2.lineTo(_x + 10, _y);
+        crc2.lineTo(_x + 10, _y - 5);
+        crc2.lineTo(_x + 5, _y - 5);
+        crc2.lineTo(_x + 5, _y - 10);
+        crc2.lineTo(_x, _y - 10);
+        crc2.lineTo(_x, _y - 5);
+        crc2.lineTo(_x - 5, _y - 5);
+        crc2.lineTo(_x - 5, _y);
         crc2.closePath();
+        crc2.fill();
         crc2.strokeStyle = "#282c2d";
         crc2.stroke();
-        crc2.fill();
     }
+    // gro�es Seegras
     function drawBigSeaGrass(_x, _y) {
         crc2.fillStyle = "#375635";
         crc2.beginPath();
@@ -208,10 +239,11 @@ var Aufgabe9;
         crc2.strokeStyle = "transparent";
         crc2.stroke();
     }
+    // kleines Seegras
     function drawSmallSeaGrass(_a, _b) {
         crc2.fillStyle = "#527c4f";
-        // a=700 und b= 550
         crc2.beginPath();
+        // a=700 und b= 550
         crc2.moveTo(_a, _b);
         crc2.quadraticCurveTo(_a + 15, _b - 110, _a + 2, _b - 150);
         crc2.quadraticCurveTo(_a - 10, _b - 185, _a + 10, _b - 230);
@@ -222,6 +254,7 @@ var Aufgabe9;
         crc2.strokeStyle = "transparent";
         crc2.stroke();
     }
+    // Fels
     function drawRocks() {
         crc2.fillStyle = "#5f6263";
         crc2.beginPath();
