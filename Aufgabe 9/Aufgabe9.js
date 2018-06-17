@@ -1,3 +1,10 @@
+/*  Aufgabe: Aufgabe 9: Canvas - Seaworld
+    Name: Alena Hurst
+    Matrikel: 257742
+    Datum: 17.06.18
+    
+    Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde nicht kopiert und auch nicht diktiert.
+    Dieser Code wurde zusammen mit Franziska Hei� erarbeitet*/
 var Aufgabe9;
 (function (Aufgabe9) {
     window.addEventListener("load", init);
@@ -17,7 +24,7 @@ var Aufgabe9;
         drawSmallSeaGrass(45, 800);
         //drawBubble();
         drawChest(700, 500);
-        drawAnchor(670, 520);
+        drawAnchor(680, 490);
         // For-Schleifen f�r die Luftblasen
         for (let i = 0; i < 16; i++) {
             let v = Math.random() * (700 - 750) + 750;
@@ -198,28 +205,33 @@ var Aufgabe9;
     }
     // Anker
     function drawAnchor(_x, _y) {
-        crc2.fillStyle = "#282c2d";
         crc2.beginPath();
-        // x=50 und y=50
-        crc2.moveTo(_x, _y);
-        crc2.lineTo(_x, _y + 30);
-        crc2.quadraticCurveTo(_x - 15, _y + 50, _x - 30, _y + 30);
-        crc2.lineTo(_x - 35, _y + 35);
-        crc2.quadraticCurveTo(_x, _y + 65, _x + 40, _y + 35);
-        crc2.lineTo(_x + 35, _y + 30);
-        crc2.quadraticCurveTo(_x + 20, _y + 50, _x + 5, _y + 30);
+        crc2.moveTo(_x - 5, _y);
         crc2.lineTo(_x + 5, _y);
-        crc2.lineTo(_x + 10, _y);
-        crc2.lineTo(_x + 10, _y - 5);
-        crc2.lineTo(_x + 5, _y - 5);
-        crc2.lineTo(_x + 5, _y - 10);
-        crc2.lineTo(_x, _y - 10);
-        crc2.lineTo(_x, _y - 5);
-        crc2.lineTo(_x - 5, _y - 5);
-        crc2.lineTo(_x - 5, _y);
-        crc2.closePath();
+        crc2.lineTo(_x + 5, _y + 30);
+        crc2.lineTo(_x + 30, _y + 30);
+        crc2.lineTo(_x + 25, _y + 40);
+        crc2.lineTo(_x + 5, _y + 40);
+        crc2.lineTo(_x + 5, _y + 90);
+        crc2.quadraticCurveTo(_x + 10, _y + 105, _x + 40, _y + 80);
+        crc2.lineTo(_x + 25, _y + 75);
+        crc2.lineTo(_x + 55, _y + 70);
+        crc2.lineTo(_x + 50, _y + 100);
+        crc2.lineTo(_x + 45, _y + 85);
+        crc2.quadraticCurveTo(_x, _y + 130, _x - 45, _y + 85);
+        crc2.lineTo(_x - 50, _y + 100);
+        crc2.lineTo(_x - 55, _y + 70);
+        crc2.lineTo(_x - 25, _y + 75);
+        crc2.lineTo(_x - 40, _y + 80);
+        crc2.quadraticCurveTo(_x - 10, _y + 105, _x - 5, _y + 90);
+        crc2.lineTo(_x - 5, _y + 40);
+        crc2.lineTo(_x - 25, _y + 40);
+        crc2.lineTo(_x - 30, _y + 30);
+        crc2.lineTo(_x - 5, _y + 30);
+        crc2.fillStyle = "#282c2d";
         crc2.fill();
-        crc2.strokeStyle = "#282c2d";
+        crc2.closePath();
+        crc2.strokeStyle = "transparent";
         crc2.stroke();
     }
     // gro�es Seegras
