@@ -32,7 +32,7 @@ namespace Aufgabe10 {
         for (let i: number = 0; i < 10; i++) {
             let bubbles: BubblesOne = new BubblesOne();
             bubbles.x = Math.random() * (300 - 350) + 330;
-            bubbles.y = Math.random() * (600 - 100) + 500;
+            bubbles.y = Math.random() * 450;
             bubbles.radius = Math.random() * 8;
             bubbleGroupOne.push(bubbles);
         }
@@ -52,7 +52,6 @@ namespace Aufgabe10 {
             bubbles.radius = Math.random() * 10; 
             bubbleGroupThree.push(bubbles);
         }
-}
 
         // For-Schleife für die großen Fische
 

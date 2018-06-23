@@ -43,7 +43,7 @@ var Aufgabe10;
             this.x += 0;
             this.y -= 2;
             if (this.y < 0) {
-                this.y = 650;
+                this.y = 480;
             }
         }
         drawBubbles() {

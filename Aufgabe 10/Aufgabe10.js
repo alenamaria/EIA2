@@ -12,6 +12,7 @@ var Aufgabe10;
     let smallFishGroup = [];
     let bubbleGroupOne = [];
     let bubbleGroupTwo = [];
+    let bubbleGroupThree = [];
     let n = 7;
     let imgData;
     function init(_event) {
@@ -23,7 +24,7 @@ var Aufgabe10;
         for (let i = 0; i < 10; i++) {
             let bubbles = new Aufgabe10.BubblesOne();
             bubbles.x = Math.random() * (300 - 350) + 330;
-            bubbles.y = Math.random() * (600 - 100) + 500;
+            bubbles.y = Math.random() * 450;
             bubbles.radius = Math.random() * 8;
             bubbleGroupOne.push(bubbles);
         }
@@ -33,6 +34,13 @@ var Aufgabe10;
             bubbles.y = Math.random() * (700 - 100) + 300;
             bubbles.radius = Math.random() * 8;
             bubbleGroupTwo.push(bubbles);
+        }
+        for (let i = 0; i < 16; i++) {
+            let bubbles = new Aufgabe10.BubblesThree();
+            bubbles.x = Math.random() * (700 - 750) + 750;
+            bubbles.y = Math.random() * 500;
+            bubbles.radius = Math.random() * 10;
+            bubbleGroupThree.push(bubbles);
         }
         // For-Schleife f�r die gro�en Fische
         for (let i = 0; i < n; i++) {
@@ -70,6 +78,9 @@ var Aufgabe10;
         for (let i = 0; i < bubbleGroupTwo.length; i++) {
             bubbleGroupTwo[i].moveBubbles();
         }
+        for (let i = 0; i < bubbleGroupThree.length; i++) {
+            bubbleGroupThree[i].moveBubbles();
+        }
     }
     function drawObjects() {
         for (let i = 0; i < fishGroup.length; i++) {
@@ -83,6 +94,9 @@ var Aufgabe10;
         }
         for (let i = 0; i < bubbleGroupTwo.length; i++) {
             bubbleGroupTwo[i].drawBubbles();
+        }
+        for (let i = 0; i < bubbleGroupThree.length; i++) {
+            bubbleGroupThree[i].drawBubbles();
         }
     }
     // Hintergrund - Bild
