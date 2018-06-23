@@ -20,7 +20,7 @@ var Aufgabe10;
         Aufgabe10.crc2 = canvas.getContext("2d");
         // Hintergrundbild-Funktion
         environment();
-        // Luftblasen
+        // For-Schleifen f�r die Luftblasen
         for (let i = 0; i < 10; i++) {
             let bubbles = new Aufgabe10.BubblesOne();
             bubbles.x = Math.random() * (300 - 350) + 330;
@@ -56,15 +56,19 @@ var Aufgabe10;
             fish.y = Math.random() * Aufgabe10.crc2.canvas.height;
             smallFishGroup.push(fish);
         }
+        // Hintergrund in der Variable speichern
         imgData = Aufgabe10.crc2.getImageData(0, 0, canvas.width, canvas.height);
+        // Aufruf der Animate-Funktion
         animate();
     }
+    // Animate-Funktion
     function animate() {
         window.setTimeout(animate, 10);
         Aufgabe10.crc2.putImageData(imgData, 0, 0);
         moveObjects();
         drawObjects();
     }
+    // moveObjects-Funktion
     function moveObjects() {
         for (let i = 0; i < fishGroup.length; i++) {
             fishGroup[i].move();
@@ -82,6 +86,7 @@ var Aufgabe10;
             bubbleGroupThree[i].moveBubbles();
         }
     }
+    // drawObjects-Funktion
     function drawObjects() {
         for (let i = 0; i < fishGroup.length; i++) {
             fishGroup[i].draw();

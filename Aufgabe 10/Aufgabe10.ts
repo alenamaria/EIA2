@@ -27,7 +27,7 @@ namespace Aufgabe10 {
 
         environment();
 
-        // Luftblasen
+        // For-Schleifen für die Luftblasen
 
         for (let i: number = 0; i < 10; i++) {
             let bubbles: BubblesOne = new BubblesOne();
@@ -71,10 +71,17 @@ namespace Aufgabe10 {
             smallFishGroup.push(fish);
         }
 
+        // Hintergrund in der Variable speichern
+        
         imgData = crc2.getImageData(0, 0, canvas.width, canvas.height);
+        
+        // Aufruf der Animate-Funktion
+        
         animate();
     }
 
+    // Animate-Funktion
+    
     function animate(): void {
         window.setTimeout(animate, 10);
 
@@ -83,6 +90,8 @@ namespace Aufgabe10 {
         moveObjects();
         drawObjects();
     }
+    
+    // moveObjects-Funktion
 
     function moveObjects(): void {
         for (let i: number = 0; i < fishGroup.length; i++) {
@@ -105,6 +114,8 @@ namespace Aufgabe10 {
             bubbleGroupThree[i].moveBubbles();
         }
     }
+    
+    // drawObjects-Funktion
 
     function drawObjects(): void {
         for (let i: number = 0; i < fishGroup.length; i++) {
