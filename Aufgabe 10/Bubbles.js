@@ -58,4 +58,4 @@ var Aufgabe10;
     }
     Aufgabe10.BubblesThree = BubblesThree;
 })(Aufgabe10 || (Aufgabe10 = {}));
-//# sourceMappingURL=drawBubbles.js.map
+//# sourceMappingURL=Bubbles.js.map

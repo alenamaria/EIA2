@@ -33,4 +33,4 @@ var Aufgabe10;
     }
     Aufgabe10.Fish = Fish;
 })(Aufgabe10 || (Aufgabe10 = {}));
-//# sourceMappingURL=drawFish.js.map
+//# sourceMappingURL=Fish.js.map

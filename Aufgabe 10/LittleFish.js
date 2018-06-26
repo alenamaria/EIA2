@@ -30,4 +30,4 @@ var Aufgabe10;
     }
     Aufgabe10.LittleFish = LittleFish;
 })(Aufgabe10 || (Aufgabe10 = {}));
-//# sourceMappingURL=drawLittleFish.js.map
+//# sourceMappingURL=LittleFish.js.map
