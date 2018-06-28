@@ -1,20 +1,23 @@
 var Aufgabe11;
 (function (Aufgabe11) {
-    class Flakes extends Aufgabe11.MovingObjects {
+    class Flake extends Aufgabe11.MovingObjects {
         constructor(newPositionX, newPositionY) {
             super();
             this.setRandomColor();
             this.x = newPositionX;
             this.y = newPositionY;
+            this.radius = 3;
+            this.stop = Math.random() * (670 - 600) + 600;
         }
         move() {
             this.x += 0;
             this.y += 1;
-            if (this.y < 0) {
-                this.y = 600;
+            if (this.y > this.stop) {
+                this.y = this.stop;
             }
         }
         draw() {
+            Aufgabe11.crc2.fillStyle = this.color;
             Aufgabe11.crc2.beginPath();
             Aufgabe11.crc2.arc(this.x, this.y, this.radius, 0, 2 * Math.PI, true);
             Aufgabe11.crc2.closePath();
@@ -36,6 +39,6 @@ var Aufgabe11;
             }
         }
     }
-    Aufgabe11.Flakes = Flakes;
+    Aufgabe11.Flake = Flake;
 })(Aufgabe11 || (Aufgabe11 = {}));
-//# sourceMappingURL=Flakes.js.map
+//# sourceMappingURL=Flake.js.map

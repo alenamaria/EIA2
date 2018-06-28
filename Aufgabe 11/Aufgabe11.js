@@ -4,58 +4,60 @@
     Datum: 17.06.18
     
     Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde nicht kopiert und auch nicht diktiert.
-    Dieser Code wurde zusammen mit Franziska Hei� erarbeitet*/
+    Dieser Code wurde zusammen mit Franziska Hei� und Anna Lotz erarbeitet*/
 var Aufgabe11;
 (function (Aufgabe11) {
     window.addEventListener("load", init);
     let movingObjects = [];
     let n = 7;
-    let canvas;
     let imgData;
     function init(_event) {
-        canvas = document.getElementsByTagName("canvas")[0];
-        Aufgabe11.crc2 = canvas.getContext("2d");
-        canvas.addEventListener("click", InsertNewObject);
+        Aufgabe11.canvas = document.getElementsByTagName("canvas")[0];
+        Aufgabe11.crc2 = Aufgabe11.canvas.getContext("2d");
+        Aufgabe11.canvas.addEventListener("click", InsertNewObject);
         // Hintergrundbild-Funktion
         Aufgabe11.environment();
         // Hintergrund in der Variable speichern
-        imgData = Aufgabe11.crc2.getImageData(0, 0, canvas.width, canvas.height);
+        imgData = Aufgabe11.crc2.getImageData(0, 0, Aufgabe11.canvas.width, Aufgabe11.canvas.height);
         // For-Schleifen f�r die Luftblasen
         for (let i = 0; i < 10; i++) {
-            let bubbles = new Aufgabe11.BubblesOne();
+            let bubbles = new Aufgabe11.BubbleOne();
+            movingObjects.push(bubbles);
+            console.log("BubblesNew");
+        }
+        for (let i = 0; i < 16; i++) {
+            let bubbles = new Aufgabe11.BubbleTwo();
             movingObjects.push(bubbles);
         }
         for (let i = 0; i < 16; i++) {
-            let bubbles = new Aufgabe11.BubblesTwo();
-            movingObjects.push(bubbles);
-        }
-        for (let i = 0; i < 16; i++) {
-            let bubbles = new Aufgabe11.BubblesThree();
+            let bubbles = new Aufgabe11.BubbleThree();
             movingObjects.push(bubbles);
         }
         // For-Schleife f�r die gro�en Fische
         for (let i = 0; i < n; i++) {
             let fish = new Aufgabe11.Fish();
-            fish.x = Math.random() * Aufgabe11.crc2.canvas.width;
-            fish.y = Math.random() * Aufgabe11.crc2.canvas.height;
             movingObjects.push(fish);
         }
         // For-Schleife f�r die kleinen Fische
         for (let i = 0; i < 5; i++) {
             let fish = new Aufgabe11.LittleFish();
-            fish.x = Math.random() * Aufgabe11.crc2.canvas.width;
-            fish.y = Math.random() * Aufgabe11.crc2.canvas.height;
             movingObjects.push(fish);
         }
         // Aufruf der Animate-Funktion
         animate();
+        console.log(Aufgabe11.BubbleOne);
     } //init
     // InsertNewObject - Mausposition im Canvas
     function InsertNewObject(_event) {
         let newPositionX = _event.clientX;
         let newPositionY = _event.clientY;
-        let flakes = new Aufgabe11.Flakes(newPositionX, newPositionY);
-        movingObjects.push(flakes);
+        for (let i = 0; i < 4; i++) {
+            let flakes = new Aufgabe11.Flake(newPositionX, newPositionY);
+            movingObjects.push(flakes);
+            newPositionX += Math.random() * 50;
+            newPositionX -= Math.random() * 50;
+            newPositionY += Math.random() * 40;
+        }
     }
     // Animate-Funktion
     function animate() {

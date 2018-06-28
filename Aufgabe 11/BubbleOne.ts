@@ -1,10 +1,11 @@
 namespace Aufgabe11 {
-    export class BubblesOne extends MovingObjects {
+    export class BubbleOne extends MovingObjects {
         
         radius: number;
         
         constructor() {
             super();
+            this.setRandomPosition();
         }
         
         move(): void {

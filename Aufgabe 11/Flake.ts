@@ -1,25 +1,29 @@
 namespace Aufgabe11 {
-    export class Flakes extends MovingObjects {
+    export class Flake extends MovingObjects {
         radius: number;
         color: string;
+        stop: number;
 
         constructor(newPositionX: number, newPositionY: number) {
             super();
             this.setRandomColor();
             this.x = newPositionX;
             this.y = newPositionY;
+            this.radius = 3;
+            this.stop = Math.random() * (670 - 600) + 600;
         }
 
         move(): void {
             this.x += 0;
             this.y += 1;
 
-            if (this.y < 0) {
-                this.y = 600;
+            if (this.y > this.stop) {
+                this.y = this.stop;
             }
         }
 
         draw(): void {
+            crc2.fillStyle = this.color;
             crc2.beginPath();
             crc2.arc(this.x, this.y, this.radius, 0, 2 * Math.PI, true);
             crc2.closePath();

@@ -4,14 +4,17 @@
     Datum: 17.06.18
     
     Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde nicht kopiert und auch nicht diktiert.
-    Dieser Code wurde zusammen mit Franziska Heiß erarbeitet*/
+    Dieser Code wurde zusammen mit Franziska Heiß und Anna Lotz erarbeitet*/
 
 namespace Aufgabe11 {
+    
     window.addEventListener("load", init);
+    
     export let crc2: CanvasRenderingContext2D;
     let movingObjects: MovingObjects[] = [];
     let n: number = 7;
-    let canvas: HTMLCanvasElement;
+    
+    export let canvas: HTMLCanvasElement;
     let imgData: ImageData;
 
     function init(_event: Event): void {
@@ -30,41 +33,41 @@ namespace Aufgabe11 {
         // For-Schleifen für die Luftblasen
 
         for (let i: number = 0; i < 10; i++) {
-            let bubbles: BubblesOne = new BubblesOne();
-            movingObjects.push(bubbles);
+            let bubbles: BubbleOne = new BubbleOne();
+            movingObjects.push(bubbles); 
+            console.log("BubblesNew");
         }
 
         for (let i: number = 0; i < 16; i++) {
-            let bubbles: BubblesTwo = new BubblesTwo();
+            let bubbles: BubbleTwo = new BubbleTwo();
             movingObjects.push(bubbles);
         }
         
         for (let i: number = 0; i < 16; i++) {
-            let bubbles: BubblesThree = new BubblesThree();  
+            let bubbles: BubbleThree = new BubbleThree();  
             movingObjects.push(bubbles);
         }
 
         // For-Schleife für die großen Fische
 
         for (let i: number = 0; i < n; i++) {
-            let fish: Fish = new Fish();
-            fish.x = Math.random() * crc2.canvas.width;
-            fish.y = Math.random() * crc2.canvas.height;
+            let fish: Fish = new Fish();           
             movingObjects.push(fish);
         }
 
         // For-Schleife für die kleinen Fische
 
         for (let i: number = 0; i < 5; i++) {
-            let fish: LittleFish = new LittleFish();
-            fish.x = Math.random() * crc2.canvas.width;
-            fish.y = Math.random() * crc2.canvas.height;
+            let fish: LittleFish = new LittleFish();           
             movingObjects.push(fish);
         }
 
         // Aufruf der Animate-Funktion
         
         animate();
+        
+        console.log(BubbleOne);
+        
     }//init
 
     // InsertNewObject - Mausposition im Canvas
@@ -73,8 +76,13 @@ namespace Aufgabe11 {
         let newPositionX: number = _event.clientX;
         let newPositionY: number = _event.clientY;   
         
-        let flakes: Flakes = new Flakes(newPositionX, newPositionY);
-        movingObjects.push(flakes);
+        for (let i: number = 0; i < 4; i++) {
+            let flakes: Flake = new Flake(newPositionX, newPositionY);
+            movingObjects.push(flakes);
+            newPositionX += Math.random() * 50; 
+            newPositionX -= Math.random() * 50; 
+            newPositionY += Math.random() * 40;         
+        }
     }
     
     // Animate-Funktion

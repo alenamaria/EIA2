@@ -1,8 +1,9 @@
 var Aufgabe11;
 (function (Aufgabe11) {
-    class BubblesOne extends Aufgabe11.MovingObjects {
+    class BubbleOne extends Aufgabe11.MovingObjects {
         constructor() {
             super();
+            this.setRandomPosition();
         }
         move() {
             this.x += 0;
@@ -29,6 +30,6 @@ var Aufgabe11;
             this.radius = Math.random() * 8;
         }
     }
-    Aufgabe11.BubblesOne = BubblesOne;
+    Aufgabe11.BubbleOne = BubbleOne;
 })(Aufgabe11 || (Aufgabe11 = {}));
-//# sourceMappingURL=BubblesOne.js.map
+//# sourceMappingURL=BubbleOne.js.map
