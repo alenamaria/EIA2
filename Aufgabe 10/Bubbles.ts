@@ -10,6 +10,10 @@ namespace Aufgabe10 {
             if (this.y < 0) {
                 this.y = 450;
             }
+
+            //            if (this.y > 550) {
+            //                this.y = 550;
+            //            }
         }
 
         drawBubbles(): void {
@@ -24,7 +28,7 @@ namespace Aufgabe10 {
             crc2.stroke();
         }
     }
-    
+
     export class BubblesTwo {
         x: number;
         y: number;
@@ -35,7 +39,7 @@ namespace Aufgabe10 {
             this.y -= 2;
             if (this.y < 0) {
                 this.y = 650;
-            }    
+            }
         }
 
         drawBubbles(): void {
@@ -50,7 +54,7 @@ namespace Aufgabe10 {
             crc2.stroke();
         }
     }
-    
+
     export class BubblesThree {
         x: number;
         y: number;
@@ -61,7 +65,7 @@ namespace Aufgabe10 {
             this.y -= 2;
             if (this.y < 0) {
                 this.y = 480;
-            }    
+            }
         }
 
         drawBubbles(): void {

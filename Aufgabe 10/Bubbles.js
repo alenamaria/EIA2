@@ -7,6 +7,9 @@ var Aufgabe10;
             if (this.y < 0) {
                 this.y = 450;
             }
+            //            if (this.y > 550) {
+            //                this.y = 550;
+            //            }
         }
         drawBubbles() {
             Aufgabe10.crc2.fillStyle = "rgb(206, 220, 226, 0.6)";
