@@ -1,4 +1,4 @@
-namespace L11_Inheritance {
+namespace Vorbereitung {
     export class DavidStar {
         x: number;
         y: number;

@@ -1,6 +1,6 @@
-var L11_Inheritance;
-(function (L11_Inheritance) {
-    class DavidStarBlue extends L11_Inheritance.DavidStar {
+var Vorbereitung;
+(function (Vorbereitung) {
+    class DavidStarBlue extends Vorbereitung.DavidStar {
         constructor(_color) {
             super(_color);
         }
@@ -9,6 +9,6 @@ var L11_Inheritance;
             this.y -= 1;
         }
     }
-    L11_Inheritance.DavidStarBlue = DavidStarBlue;
-})(L11_Inheritance || (L11_Inheritance = {}));
+    Vorbereitung.DavidStarBlue = DavidStarBlue;
+})(Vorbereitung || (Vorbereitung = {}));
 //# sourceMappingURL=DavidStar_blue.js.map

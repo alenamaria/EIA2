@@ -1,4 +1,4 @@
-namespace L11_Inheritance {
+namespace Vorbereitung {
     window.addEventListener("load", init);
     export let crc2: CanvasRenderingContext2D;
     let stars: DavidStar[] = [];

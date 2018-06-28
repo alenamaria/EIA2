@@ -1,4 +1,4 @@
-namespace L11_Inheritance {
+namespace Vorbereitung {
     export class DavidStarBlue extends DavidStar {
 
         constructor(_color: string) {
