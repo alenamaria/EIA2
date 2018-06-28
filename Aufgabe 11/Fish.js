@@ -34,6 +34,6 @@ var Aufgabe11;
             Aufgabe11.crc2.fill();
         }
     }
-    Aufgabe11.Fish = Fish;
-})(Aufgabe11 || (Aufgabe11 = {}));
+    Aufgabe11.Fish = Fish; //class
+})(Aufgabe11 || (Aufgabe11 = {})); //namespace
 //# sourceMappingURL=Fish.js.map

@@ -39,5 +39,5 @@ namespace Aufgabe11 {
             crc2.stroke();
             crc2.fill();
         }
-    }
-}
+    }//class
+}//namespace
