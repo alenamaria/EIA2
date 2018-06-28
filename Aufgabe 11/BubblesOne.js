@@ -1,6 +1,9 @@
 var Aufgabe11;
 (function (Aufgabe11) {
     class BubblesOne extends Aufgabe11.MovingObjects {
+        constructor() {
+            super();
+        }
         move() {
             this.x += 0;
             this.y -= 2;

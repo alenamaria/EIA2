@@ -24,16 +24,10 @@ var Aufgabe11;
         }
         for (let i = 0; i < 16; i++) {
             let bubbles = new Aufgabe11.BubblesTwo();
-            bubbles.x = Math.random() * (100 - 150) + 100;
-            bubbles.y = Math.random() * (700 - 100) + 300;
-            bubbles.radius = Math.random() * 8;
             movingObjects.push(bubbles);
         }
         for (let i = 0; i < 16; i++) {
             let bubbles = new Aufgabe11.BubblesThree();
-            bubbles.x = Math.random() * (700 - 750) + 750;
-            bubbles.y = Math.random() * 500;
-            bubbles.radius = Math.random() * 10;
             movingObjects.push(bubbles);
         }
         // For-Schleife f�r die gro�en Fische
@@ -55,6 +49,7 @@ var Aufgabe11;
         // Aufruf der Animate-Funktion
         animate();
     }
+    // InsertNewObject - Mausposition im Canvas
     function InsertNewObject(_event) {
         let newPositionX = _event.clientX;
         let newPositionY = _event.clientY;

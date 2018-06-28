@@ -32,17 +32,11 @@ namespace Aufgabe11 {
 
         for (let i: number = 0; i < 16; i++) {
             let bubbles: BubblesTwo = new BubblesTwo();
-            bubbles.x = Math.random() * (100 - 150) + 100;
-            bubbles.y = Math.random() * (700 - 100) + 300;
-            bubbles.radius = Math.random() * 8; 
             movingObjects.push(bubbles);
         }
         
         for (let i: number = 0; i < 16; i++) {
-            let bubbles: BubblesThree = new BubblesThree();
-            bubbles.x = Math.random() * (700 - 750) + 750;
-            bubbles.y = Math.random() * 500;
-            bubbles.radius = Math.random() * 10; 
+            let bubbles: BubblesThree = new BubblesThree();  
             movingObjects.push(bubbles);
         }
 
@@ -73,6 +67,8 @@ namespace Aufgabe11 {
         animate();
     }
 
+    // InsertNewObject - Mausposition im Canvas
+    
     function InsertNewObject(_event: MouseEvent): void {
         let newPositionX: number = _event.clientX;
         let newPositionY: number = _event.clientY;   

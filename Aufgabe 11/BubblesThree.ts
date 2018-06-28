@@ -12,5 +12,11 @@ namespace Aufgabe11 {
                 this.y = 480;
             }
         }
+        
+         setRandomPosition(): void {
+            this.x = Math.random() * (700 - 750) + 750;
+            this.y = Math.random() * 500;
+            this.radius = Math.random() * 10;
+        }
     }
 }

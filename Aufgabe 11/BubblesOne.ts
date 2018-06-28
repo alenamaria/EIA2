@@ -2,7 +2,11 @@ namespace Aufgabe11 {
     export class BubblesOne extends MovingObjects {
         
         radius: number;
-
+        
+        constructor() {
+            super();
+        }
+        
         move(): void {
             this.x += 0;
             this.y -= 2;
