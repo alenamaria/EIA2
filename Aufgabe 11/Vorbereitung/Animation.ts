@@ -1,3 +1,11 @@
+/*  Aufgabe: Aufgabe 9: Canvas - Seaworld
+    Name: Alena Hurst
+    Matrikel: 257742
+    Datum: 17.06.18
+    
+    Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde nicht kopiert und auch nicht diktiert.
+    Dieser Code wurde zusammen mit Franziska Heiﬂ, Sofia Gschwend und Anna Lotz erarbeitet*/
+
 namespace Vorbereitung {
     window.addEventListener("load", init);
     export let crc2: CanvasRenderingContext2D;
