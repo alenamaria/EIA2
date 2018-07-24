@@ -1,14 +1,20 @@
+/*  Aufgabe: Abschlussaufgabe
+    Name: Alena Hurst
+    Matrikel: 257742
+    Datum: 29.07.18
+    
+    Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde nicht kopiert und auch nicht diktiert.*/
+
 namespace Dot {
     export class Triangle extends Square {
-        color: string;
 
+        // Konstruktor
         constructor() {
             super();
             this.setRandomColor();
-            this.setStartPosition();
-            this.setRandomSpawnPoint();
-        }
+        } // constructor
 
+        // draw-Funktion
         draw(): void {
             crc2.fillStyle = this.color;
             crc2.beginPath();
@@ -20,18 +26,9 @@ namespace Dot {
 
             crc2.strokeStyle = "transparent";
             crc2.stroke();
-        }
+        } // draw
 
-        setStartPosition(): void {
-            this.x = canvas.width + 50;
-            this.y = 510;
-        }
-
-        setRandomSpawnPoint(): void {
-            this.x = Math.random() * ((crc2.canvas.width + 700) - (crc2.canvas.width + 50)) + (crc2.canvas.width + 50);
-            this.y = 560;
-        }
-
+        // setRandomColor-Funktion - zufällige Farbe der Dreiecke
         setRandomColor(): void {
             let c: number = Math.floor(Math.random() * 3);
             switch (c) {

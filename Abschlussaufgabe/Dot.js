@@ -1,23 +1,29 @@
-/*  Aufgabe: Aufgabe 9: Canvas - Seaworld
+/*  Aufgabe: Abschlussaufgabe
     Name: Alena Hurst
     Matrikel: 257742
-    Datum: 17.06.18
+    Datum: 29.07.18
     
     Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde nicht kopiert und auch nicht diktiert.*/
 var Dot;
 (function (Dot_1) {
     class Dot extends Dot_1.SuperClass {
+        // Konstruktor
         constructor() {
             super();
-            this.radius = 30;
+            // Deklarieren von Variablen
+            this.newPositionX = 0;
+            this.newPositionY = 0;
+            this.gravity = 0.05;
+            this.gravitySpeed = 0;
             this.setStartPosition();
-            //            this.x = newPositionX;
-            //            this.y = newPositionY;
-        }
+            this.radius = 30;
+        } // constructor
+        // setStartPosition-Funktion - setzt den Startpunkt fest
         setStartPosition() {
             this.x = 125;
             this.y = 550;
-        }
+        } // setStartPosition
+        // draw-Funktion
         draw() {
             Dot_1.crc2.fillStyle = "#4c4c4c";
             Dot_1.crc2.beginPath();
@@ -26,13 +32,32 @@ var Dot;
             Dot_1.crc2.fill();
             Dot_1.crc2.strokeStyle = "transparent";
             Dot_1.crc2.stroke();
-            console.log("Dot");
-        }
-        move() {
-            this.x += 0;
-            this.y -= 0;
-        }
+        } // draw
+        // setNewPosition-Funktion, unter anderem Aufruf der Funktionen "bottomBorder" und "topBorder"
+        setNewPosition() {
+            this.gravitySpeed += this.gravity;
+            this.x += this.newPositionX;
+            this.y += this.newPositionY + this.gravitySpeed;
+            this.bottomBorder();
+            this.topBorder();
+        } // setNewPosition
+        // bottomBorder-Funktion - untere Grenze, unter die der springende Punkt nicht gelangen kann
+        bottomBorder() {
+            let borderbottom = 530;
+            if (this.y > borderbottom) {
+                this.y = borderbottom;
+                this.gravitySpeed = 0;
+            }
+        } // bottomBorder
+        // topBorder-Funktion - obere Grenze, die der springende Punkt nicht �berschreiten darf
+        topBorder() {
+            let bordertop = 300;
+            if (this.y < bordertop) {
+                this.y = bordertop;
+                this.gravitySpeed = 0;
+            }
+        } // topBorder
     }
-    Dot_1.Dot = Dot;
-})(Dot || (Dot = {}));
+    Dot_1.Dot = Dot; // class
+})(Dot || (Dot = {})); // namespace
 //# sourceMappingURL=Dot.js.map

@@ -1,14 +1,21 @@
+/*  Aufgabe: Abschlussaufgabe
+    Name: Alena Hurst
+    Matrikel: 257742
+    Datum: 29.07.18
+    
+    Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde nicht kopiert und auch nicht diktiert.*/
+
 namespace Dot {
     export class Square extends Dot {
         color: string;
-        
+
         constructor() {
             super();
             this.setRandomColor();
-            this.setStartPosition();
             this.setRandomSpawnPoint();
-        }
+        } // constructor
 
+        // draw-Funktion
         draw(): void {
             crc2.fillStyle = this.color;
             crc2.beginPath();
@@ -18,30 +25,28 @@ namespace Dot {
             crc2.lineTo(this.x + 50, this.y);
             crc2.closePath();
             crc2.fill();
-            
+
             crc2.strokeStyle = "transparent";
             crc2.stroke();
-        }
-        
+        } // draw
+
+        // Move-Funktion
         move(): void {
             this.x -= 1;
             this.y += 0;
 
             if (this.x < -50) {
-                this.x = canvas.width + 50;
+                this.x = canvas.width;
             }
-        }
-        
-        setStartPosition(): void {
-            this.x = canvas.width + 50;
-            this.y = 510;
-        }
-        
+        } // move
+
+        // setRandomSpawnPoint-Funktion - setzt eine random Reihenfolge außerhalb des Canvas fest, in der sie dann im Canvas sichtbar sind
         setRandomSpawnPoint(): void {
-            this.x = Math.random() * ((crc2.canvas.width + 700) - (crc2.canvas.width + 50)) + (crc2.canvas.width + 50);
-            this.y = 510;   
-        }
-        
+            this.x = Math.random() * ((crc2.canvas.width + 700) - (crc2.canvas.width)) + (crc2.canvas.width);
+            this.y = 510;
+        } // setRandomSpawnPoint
+
+        // setRandomColor-Funktion - zufällige Farbe der Vierecke
         setRandomColor(): void {
             let c: number = Math.floor(Math.random() * 3);
             switch (c) {
@@ -52,7 +57,7 @@ namespace Dot {
                     this.color = "#b2cc4d";
                     break;
                 case 2:
-                    this.color = "#b7505e";    
+                    this.color = "#b7505e";
             } // switch   
         } // setRandomColor
     } // class   

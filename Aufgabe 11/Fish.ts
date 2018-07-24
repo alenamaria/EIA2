@@ -40,7 +40,6 @@ namespace Aufgabe11 {
             crc2.lineTo(this.x + 100, this.y);
             crc2.quadraticCurveTo(this.x + 45, this.y - 50, this.x, this.y);
 
-
             crc2.strokeStyle = "transparent";
             crc2.stroke();
             crc2.fill();
