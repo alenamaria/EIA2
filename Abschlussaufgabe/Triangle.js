@@ -29,6 +29,11 @@ var Dot;
             this.x = Math.random() * ((Dot.crc2.canvas.width + 700) - (Dot.crc2.canvas.width)) + (Dot.crc2.canvas.width);
             this.y = 400;
         } // setRandomSpawnPoint
+        // setNewRandomSpawnPoint-Funktion
+        setNewRandomSpawnPoint() {
+            this.x = Math.random() * ((Dot.crc2.canvas.width + 1000) - (Dot.crc2.canvas.width)) + (Dot.crc2.canvas.width);
+            this.y = 400;
+        } // setNewRandomSpawnPoint
         // setRandomColor-Funktion - zuf�llige Farbe der Dreiecke
         setRandomColor() {
             let c = Math.floor(Math.random() * 3);

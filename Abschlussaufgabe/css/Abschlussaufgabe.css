@@ -1,0 +1,67 @@
+@import url('https://fonts.googleapis.com/css?family=Nunito');
+canvas {
+	display: block;
+	margin: auto;
+	margin-top: 2em;
+}
+
+div {
+	margin: auto;
+	display: block;
+	text-align: center;
+	width: 50%;
+	background-color: white;
+	padding-left: 2em;
+	padding-right: 2em;
+	padding-top: 1em;
+	padding-bottom: 2em;
+	margin-top: 2em;
+}
+
+body {
+	background-color: #3d3d3d;
+	font-family: 'Nunito', sans-serif;
+}
+
+button {
+	color: white;
+	background-color: #247d87;
+	width: 10em;
+	height: 2em;
+	border: none;
+	cursor: pointer;
+}
+
+button:hover {
+	background-color: #3d3d3d;
+	color: white;
+}
+
+img {
+	display: block;
+	margin: auto;
+}
+
+@media screen and (min-width: 0px){
+	img {
+		width: 100%;
+	}
+}
+
+@media screen and (min-width: 570px) {
+	img {
+		width: 80%;
+	}
+}
+
+@media screen and (min-width: 1024px) {
+	img {
+		width: 50%;
+	}
+}
+
+@media screen and (min-width: 1600px) {
+	img {
+		width: 40%;
+	}
+}

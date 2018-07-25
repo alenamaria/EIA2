@@ -34,6 +34,12 @@ namespace Dot {
             this.y = 400;
         } // setRandomSpawnPoint
 
+        // setNewRandomSpawnPoint-Funktion
+        setNewRandomSpawnPoint(): void {
+            this.x = Math.random() * ((crc2.canvas.width + 1000) - (crc2.canvas.width)) + (crc2.canvas.width);
+            this.y = 400;   
+        } // setNewRandomSpawnPoint
+        
         // setRandomColor-Funktion - zufällige Farbe der Dreiecke
         setRandomColor(): void {
             let c: number = Math.floor(Math.random() * 3);

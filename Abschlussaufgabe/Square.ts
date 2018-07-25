@@ -6,15 +6,24 @@
     Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde nicht kopiert und auch nicht diktiert.*/
 
 namespace Dot {
-    export class Square extends Dot {
+    export class Square extends SuperClass {
         color: string;
 
+        // Konstruktor
         constructor() {
             super();
             this.setRandomColor();
             this.setRandomSpawnPoint();
         } // constructor
 
+        // chekcPositionSquare-Funktion
+        checkPositionSquare(): void {
+            if (this.x < -50) {
+                this.setNewRandomSpawnPoint();
+                this.setRandomColor();    
+            }    
+        } // checkPositionSquare
+        
         // draw-Funktion
         draw(): void {
             crc2.fillStyle = this.color;
@@ -35,18 +44,19 @@ namespace Dot {
         // Move-Funktion
         move(): void {
             this.x -= 1;
-            this.y += 0;
-
-            if (this.x < -50) {
-                this.x = canvas.width;
-            }
         } // move
 
         // setRandomSpawnPoint-Funktion - setzt eine random Reihenfolge außerhalb des Canvas fest, in der sie dann im Canvas sichtbar sind
         setRandomSpawnPoint(): void {
-            this.x = Math.random() * ((crc2.canvas.width + 700) - (crc2.canvas.width)) + (crc2.canvas.width);
+            this.x = Math.random() * ((crc2.canvas.width + 1000) - (crc2.canvas.width)) + (crc2.canvas.width);
             this.y = 510;
         } // setRandomSpawnPoint
+        
+        // setNewRandomSpawnPoint-Funktion
+        setNewRandomSpawnPoint(): void {
+            this.x = Math.random() * ((crc2.canvas.width + 1000) - (crc2.canvas.width)) + (crc2.canvas.width);
+            this.y = 510;   
+        } // setNewRandomSpawnPoint
 
         // setRandomColor-Funktion - zufällige Farbe der Vierecke
         setRandomColor(): void {

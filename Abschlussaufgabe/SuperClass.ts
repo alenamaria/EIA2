@@ -14,6 +14,10 @@ namespace Dot {
             // ohne Inhalt    
         }
         
+        checkPositionSquare(): void {
+            // ohne Inhalt    
+        }
+        
         draw(): void {
             // ohne Inhalt    
         }
@@ -25,5 +29,7 @@ namespace Dot {
         checkPosition(): void {
             // ohne Inhalt    
         }
+        
+        
     } // class 
 } // namespace

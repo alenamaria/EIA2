@@ -8,15 +8,21 @@ var Dot;
 (function (Dot) {
     // EventListener auf dem Window, wenn geladen, dann wird die Init-Funktion aufgerufen
     window.addEventListener("load", init);
-    let clickOnCanvas;
     Dot.superclass = [];
     Dot.opponents = [];
     let imgData;
     // Erzeugen des springenden Punktes, der anschlie�end in das Array gepusht wird
     let dot = new Dot.Dot();
     Dot.superclass.push(dot);
-    // init-Funktion
+    // init-Funktion - Startbildschirm wird angezeigt, Spiel an sich noch nicht
     function init(_event) {
+        document.getElementById("start").addEventListener("click", start);
+        document.getElementById("dot").style.display = "none";
+    } // init
+    // start-Funktion - Spiel beginnt
+    function start(_event) {
+        document.getElementById("startscreen").style.display = "none";
+        document.getElementById("dot").style.display = "block";
         Dot.canvas = document.getElementsByTagName("canvas")[0];
         Dot.crc2 = Dot.canvas.getContext("2d");
         // Hintergrund des Spiels
@@ -26,7 +32,7 @@ var Dot;
         // Aufruf der animate-Funktion
         animate();
         // Erzeugen der Vierrecke
-        for (let i = 0; i < 3; i++) {
+        for (let i = 0; i < 4; i++) {
             let square = new Dot.Square();
             Dot.opponents.push(square);
         }
@@ -36,21 +42,23 @@ var Dot;
             Dot.opponents.push(triangle);
         }
         // Steuerung durch den Klick bzw. durch Touch, installieren von EventListener auf dem Canvas
-        clickOnCanvas = document.getElementsByTagName("canvas")[0];
-        clickOnCanvas.addEventListener("mousedown", navigateTop);
-        clickOnCanvas.addEventListener("touchstart", navigateTop);
+        Dot.clickOnCanvas = document.getElementsByTagName("canvas")[0];
+        Dot.clickOnCanvas.addEventListener("mousedown", navigateTop);
+        Dot.clickOnCanvas.addEventListener("touchstart", navigateTop);
         // navigateTop-Funktion - Bewegung des Dots nach oben
         function navigateTop() {
             dot.gravity = -0.2;
         }
         // Steuerung durch den Klick bzw. durch Touch, installieren von EventListener auf dem Canvas
-        clickOnCanvas.addEventListener("mouseup", navigateBottom);
-        clickOnCanvas.addEventListener("touchend", navigateBottom);
+        Dot.clickOnCanvas.addEventListener("mouseup", navigateBottom);
+        Dot.clickOnCanvas.addEventListener("touchend", navigateBottom);
         // navigateBottom-Funktion - Bewegung des Dots nach unten
         function navigateBottom() {
             dot.gravity = 0.1;
         }
-    } // init
+        // Timeout - nach 40 Sekunden erscheint eine Meldung, dass man gewonnen hat
+        window.setTimeout(gratulation, 40000);
+    }
     // animate-Funktion
     function animate() {
         // Timeout
@@ -83,12 +91,15 @@ var Dot;
             Dot.superclass[i].checkPosition();
         }
         for (let i = 0; i < Dot.opponents.length; i++) {
+            Dot.opponents[i].checkPositionSquare();
             Dot.opponents[i].move();
         }
     } // moveObjects
     function gratulation() {
-        window.alert("YOU WON");
-    }
-    window.setTimeout(gratulation, 30000);
+        window.alert("CONGRATULATION");
+        if (window.alert) {
+            location.reload();
+        }
+    } // gratulation
 })(Dot || (Dot = {})); // namespace
 //# sourceMappingURL=Abschlussaufgabe.js.map

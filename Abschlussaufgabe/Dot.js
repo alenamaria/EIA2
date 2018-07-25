@@ -67,7 +67,6 @@ var Dot;
                     if (window.alert) {
                         location.reload();
                     }
-                    console.log("gameOver");
                 }
             }
         } // checkPosition     

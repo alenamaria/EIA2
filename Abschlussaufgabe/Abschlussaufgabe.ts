@@ -13,7 +13,7 @@ namespace Dot {
     // Deklarieren der notwendigen Variablen
     export let crc2: CanvasRenderingContext2D;
     export let canvas: HTMLCanvasElement;
-    let clickOnCanvas: HTMLCanvasElement;
+    export let clickOnCanvas: HTMLCanvasElement;
     export let superclass: SuperClass[] = [];
     export let opponents: Square[] = [];
     let imgData: ImageData;
@@ -22,8 +22,17 @@ namespace Dot {
     let dot: Dot = new Dot();
     superclass.push(dot);
 
-    // init-Funktion
+    // init-Funktion - Startbildschirm wird angezeigt, Spiel an sich noch nicht
     function init(_event: Event): void {
+        document.getElementById("start").addEventListener("click", start);
+        document.getElementById("dot").style.display = "none";
+    } // init
+
+    // start-Funktion - Spiel beginnt
+    function start(_event: Event): void {
+        document.getElementById("startscreen").style.display = "none";
+        document.getElementById("dot").style.display = "block";
+
         canvas = document.getElementsByTagName("canvas")[0];
         crc2 = canvas.getContext("2d");
 
@@ -37,7 +46,7 @@ namespace Dot {
         animate();
 
         // Erzeugen der Vierrecke
-        for (let i: number = 0; i < 3; i++) {
+        for (let i: number = 0; i < 4; i++) {
             let square: Square = new Square();
             opponents.push(square);
         }
@@ -66,7 +75,10 @@ namespace Dot {
         function navigateBottom(): void {
             dot.gravity = 0.1;
         }
-    } // init
+
+        // Timeout - nach 40 Sekunden erscheint eine Meldung, dass man gewonnen hat
+        window.setTimeout(gratulation, 40000);
+    }
 
     // animate-Funktion
     function animate(): void {
@@ -108,13 +120,16 @@ namespace Dot {
         }
 
         for (let i: number = 0; i < opponents.length; i++) {
+            opponents[i].checkPositionSquare();
             opponents[i].move();
+
         }
     } // moveObjects
-    
+
     function gratulation(): void {
-        window.alert("YOU WON");    
-    }
-    
-    window.setTimeout(gratulation, 30000);
+        window.alert("CONGRATULATION");
+        if (window.alert) {
+            location.reload();
+        }
+    } // gratulation
 } // namespace

@@ -6,12 +6,20 @@
     Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde nicht kopiert und auch nicht diktiert.*/
 var Dot;
 (function (Dot) {
-    class Square extends Dot.Dot {
+    class Square extends Dot.SuperClass {
+        // Konstruktor
         constructor() {
             super();
             this.setRandomColor();
             this.setRandomSpawnPoint();
         } // constructor
+        // chekcPositionSquare-Funktion
+        checkPositionSquare() {
+            if (this.x < -50) {
+                this.setNewRandomSpawnPoint();
+                this.setRandomColor();
+            }
+        } // checkPositionSquare
         // draw-Funktion
         draw() {
             Dot.crc2.fillStyle = this.color;
@@ -29,16 +37,17 @@ var Dot;
         // Move-Funktion
         move() {
             this.x -= 1;
-            this.y += 0;
-            if (this.x < -50) {
-                this.x = Dot.canvas.width;
-            }
         } // move
         // setRandomSpawnPoint-Funktion - setzt eine random Reihenfolge au�erhalb des Canvas fest, in der sie dann im Canvas sichtbar sind
         setRandomSpawnPoint() {
-            this.x = Math.random() * ((Dot.crc2.canvas.width + 700) - (Dot.crc2.canvas.width)) + (Dot.crc2.canvas.width);
+            this.x = Math.random() * ((Dot.crc2.canvas.width + 1000) - (Dot.crc2.canvas.width)) + (Dot.crc2.canvas.width);
             this.y = 510;
         } // setRandomSpawnPoint
+        // setNewRandomSpawnPoint-Funktion
+        setNewRandomSpawnPoint() {
+            this.x = Math.random() * ((Dot.crc2.canvas.width + 1000) - (Dot.crc2.canvas.width)) + (Dot.crc2.canvas.width);
+            this.y = 510;
+        } // setNewRandomSpawnPoint
         // setRandomColor-Funktion - zuf�llige Farbe der Vierecke
         setRandomColor() {
             let c = Math.floor(Math.random() * 3);

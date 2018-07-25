@@ -10,6 +10,9 @@ var Dot;
         constructor() {
             // ohne Inhalt    
         }
+        checkPositionSquare() {
+            // ohne Inhalt    
+        }
         draw() {
             // ohne Inhalt    
         }
