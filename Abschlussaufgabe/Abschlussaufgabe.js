@@ -9,11 +9,12 @@ var Dot;
     // EventListener auf dem Window, wenn geladen, dann wird die Init-Funktion aufgerufen
     window.addEventListener("load", init);
     let clickOnCanvas;
-    let superclass = [];
+    Dot.superclass = [];
+    Dot.opponents = [];
     let imgData;
     // Erzeugen des springenden Punktes, der anschlie�end in das Array gepusht wird
     let dot = new Dot.Dot();
-    superclass.push(dot);
+    Dot.superclass.push(dot);
     // init-Funktion
     function init(_event) {
         Dot.canvas = document.getElementsByTagName("canvas")[0];
@@ -25,14 +26,14 @@ var Dot;
         // Aufruf der animate-Funktion
         animate();
         // Erzeugen der Vierrecke
-        for (let i = 0; i < 2; i++) {
+        for (let i = 0; i < 3; i++) {
             let square = new Dot.Square();
-            superclass.push(square);
+            Dot.opponents.push(square);
         }
         // Erzeugen der Dreiecke
-        for (let i = 0; i < 1; i++) {
+        for (let i = 0; i < 2; i++) {
             let triangle = new Dot.Triangle();
-            superclass.push(triangle);
+            Dot.opponents.push(triangle);
         }
         // Steuerung durch den Klick bzw. durch Touch, installieren von EventListener auf dem Canvas
         clickOnCanvas = document.getElementsByTagName("canvas")[0];
@@ -61,22 +62,33 @@ var Dot;
         drawObjects();
         moveObjects();
         newPosition();
-    }
+    } // animate
     // drawObjects-Funktion
     function drawObjects() {
-        for (let i = 0; i < superclass.length; i++) {
-            superclass[i].draw();
+        for (let i = 0; i < Dot.superclass.length; i++) {
+            Dot.superclass[i].draw();
         }
-    }
+        for (let i = 0; i < Dot.opponents.length; i++) {
+            Dot.opponents[i].draw();
+        }
+    } // drawObjects
     // newPosition-Funktion
     function newPosition() {
         dot.setNewPosition();
-    }
+    } // newPosition
     // MoveObjects-Funktion
     function moveObjects() {
-        for (let i = 0; i < superclass.length; i++) {
-            superclass[i].move();
+        for (let i = 0; i < Dot.superclass.length; i++) {
+            Dot.superclass[i].move();
+            Dot.superclass[i].checkPosition();
         }
+        for (let i = 0; i < Dot.opponents.length; i++) {
+            Dot.opponents[i].move();
+        }
+    } // moveObjects
+    function gratulation() {
+        window.alert("YOU WON");
     }
+    window.setTimeout(gratulation, 30000);
 })(Dot || (Dot = {})); // namespace
 //# sourceMappingURL=Abschlussaufgabe.js.map

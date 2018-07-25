@@ -14,12 +14,13 @@ namespace Dot {
     export let crc2: CanvasRenderingContext2D;
     export let canvas: HTMLCanvasElement;
     let clickOnCanvas: HTMLCanvasElement;
-    let superclass: SuperClass[] = [];
+    export let superclass: SuperClass[] = [];
+    export let opponents: Square[] = [];
     let imgData: ImageData;
-    
+
     // Erzeugen des springenden Punktes, der anschlieﬂend in das Array gepusht wird
     let dot: Dot = new Dot();
-        superclass.push(dot);
+    superclass.push(dot);
 
     // init-Funktion
     function init(_event: Event): void {
@@ -36,41 +37,40 @@ namespace Dot {
         animate();
 
         // Erzeugen der Vierrecke
-        for (let i: number = 0; i < 2; i++) {
+        for (let i: number = 0; i < 3; i++) {
             let square: Square = new Square();
-            superclass.push(square);
+            opponents.push(square);
         }
 
         // Erzeugen der Dreiecke
-        for (let i: number = 0; i < 1; i++) {
+        for (let i: number = 0; i < 2; i++) {
             let triangle: Triangle = new Triangle();
-            superclass.push(triangle);
+            opponents.push(triangle);
         }
-        
+
         // Steuerung durch den Klick bzw. durch Touch, installieren von EventListener auf dem Canvas
         clickOnCanvas = <HTMLCanvasElement>document.getElementsByTagName("canvas")[0];
         clickOnCanvas.addEventListener("mousedown", navigateTop);
         clickOnCanvas.addEventListener("touchstart", navigateTop);
-        
+
         // navigateTop-Funktion - Bewegung des Dots nach oben
         function navigateTop(): void {
             dot.gravity = -0.2;
         }
-        
+
         // Steuerung durch den Klick bzw. durch Touch, installieren von EventListener auf dem Canvas
         clickOnCanvas.addEventListener("mouseup", navigateBottom);
         clickOnCanvas.addEventListener("touchend", navigateBottom);
-        
+
         // navigateBottom-Funktion - Bewegung des Dots nach unten
         function navigateBottom(): void {
-            dot.gravity = 0.1;    
+            dot.gravity = 0.1;
         }
-
     } // init
 
     // animate-Funktion
     function animate(): void {
-        
+
         // Timeout
         window.setTimeout(animate, 10);
 
@@ -82,25 +82,39 @@ namespace Dot {
         drawObjects();
         moveObjects();
         newPosition();
-    }
+    } // animate
 
     // drawObjects-Funktion
     function drawObjects(): void {
         for (let i: number = 0; i < superclass.length; i++) {
             superclass[i].draw();
         }
-    }
-    
+
+        for (let i: number = 0; i < opponents.length; i++) {
+            opponents[i].draw();
+        }
+    } // drawObjects
+
     // newPosition-Funktion
     function newPosition(): void {
-        dot.setNewPosition();    
-    }
+        dot.setNewPosition();
+    } // newPosition
 
     // MoveObjects-Funktion
     function moveObjects(): void {
         for (let i: number = 0; i < superclass.length; i++) {
             superclass[i].move();
+            superclass[i].checkPosition();
         }
-    }
 
+        for (let i: number = 0; i < opponents.length; i++) {
+            opponents[i].move();
+        }
+    } // moveObjects
+    
+    function gratulation(): void {
+        window.alert("YOU WON");    
+    }
+    
+    window.setTimeout(gratulation, 30000);
 } // namespace

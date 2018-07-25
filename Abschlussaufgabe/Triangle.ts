@@ -27,6 +27,12 @@ namespace Dot {
             crc2.strokeStyle = "transparent";
             crc2.stroke();
         } // draw
+        
+         // setRandomSpawnPoint-Funktion - setzt eine random Reihenfolge auﬂerhalb des Canvas fest, in der sie dann im Canvas sichtbar sind
+        setRandomSpawnPoint(): void {
+            this.x = Math.random() * ((crc2.canvas.width + 700) - (crc2.canvas.width)) + (crc2.canvas.width);
+            this.y = 400;
+        } // setRandomSpawnPoint
 
         // setRandomColor-Funktion - zuf‰llige Farbe der Dreiecke
         setRandomColor(): void {

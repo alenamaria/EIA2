@@ -16,7 +16,10 @@ var Dot;
         move() {
             // ohne Inhalt    
         }
+        checkPosition() {
+            // ohne Inhalt    
+        }
     }
-    Dot.SuperClass = SuperClass;
-})(Dot || (Dot = {}));
+    Dot.SuperClass = SuperClass; // class 
+})(Dot || (Dot = {})); // namespace
 //# sourceMappingURL=SuperClass.js.map

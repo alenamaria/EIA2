@@ -21,5 +21,9 @@ namespace Dot {
         move(): void {
             // ohne Inhalt    
         }
-    }    
-}
+        
+        checkPosition(): void {
+            // ohne Inhalt    
+        }
+    } // class 
+} // namespace

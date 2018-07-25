@@ -7,7 +7,7 @@
 
 namespace Dot {
     export class Dot extends SuperClass {
-        
+
         // Deklarieren von Variablen
         newPositionX: number = 0;
         newPositionY: number = 0;
@@ -40,6 +40,8 @@ namespace Dot {
 
             crc2.strokeStyle = "transparent";
             crc2.stroke();
+            
+            //console.log(this.y);
         } // draw
 
         // setNewPosition-Funktion, unter anderem Aufruf der Funktionen "bottomBorder" und "topBorder"
@@ -59,7 +61,7 @@ namespace Dot {
                 this.gravitySpeed = 0;
             }
         } // bottomBorder
-        
+
         // topBorder-Funktion - obere Grenze, die der springende Punkt nicht überschreiten darf
         topBorder(): void {
             let bordertop: number = 300;
@@ -68,5 +70,21 @@ namespace Dot {
                 this.gravitySpeed = 0;
             }
         } // topBorder
+
+        // checkPosition-Funktion - überprüft, ob der springende Punkt an der gleichen Position wie der Gegner ist
+        checkPosition(): void {
+            for (let i: number = 0; i < opponents.length; i++) {
+                if (this.y <= opponents[i].y + 25 && this.y >= opponents[i].y - 25 && this.x <= opponents[i].x + 25 && this.x >= opponents[i]. x - 25) {
+                    
+                    // Alert-Box mit der Benachrichtigung "GAME OVER"
+                    window.alert("GAME OVER");
+                    
+                    if (window.alert) {
+                        location.reload();    
+                    }
+                    console.log("gameOver");
+                }
+            }
+        } // checkPosition     
     } // class
 } // namespace

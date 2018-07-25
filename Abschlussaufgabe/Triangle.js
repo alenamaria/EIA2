@@ -24,6 +24,11 @@ var Dot;
             Dot.crc2.strokeStyle = "transparent";
             Dot.crc2.stroke();
         } // draw
+        // setRandomSpawnPoint-Funktion - setzt eine random Reihenfolge au�erhalb des Canvas fest, in der sie dann im Canvas sichtbar sind
+        setRandomSpawnPoint() {
+            this.x = Math.random() * ((Dot.crc2.canvas.width + 700) - (Dot.crc2.canvas.width)) + (Dot.crc2.canvas.width);
+            this.y = 400;
+        } // setRandomSpawnPoint
         // setRandomColor-Funktion - zuf�llige Farbe der Dreiecke
         setRandomColor() {
             let c = Math.floor(Math.random() * 3);

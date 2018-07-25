@@ -28,6 +28,8 @@ namespace Dot {
 
             crc2.strokeStyle = "transparent";
             crc2.stroke();
+            
+            //console.log(this.y);
         } // draw
 
         // Move-Funktion

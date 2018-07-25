@@ -24,6 +24,7 @@ var Dot;
             Dot.crc2.fill();
             Dot.crc2.strokeStyle = "transparent";
             Dot.crc2.stroke();
+            //console.log(this.y);
         } // draw
         // Move-Funktion
         move() {
