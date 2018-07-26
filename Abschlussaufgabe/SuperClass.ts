@@ -9,27 +9,21 @@ namespace Dot {
     export class SuperClass {
         x: number;
         y: number;
-        
+
         constructor() {
             // ohne Inhalt    
         }
-        
+
         checkPositionSquare(): void {
             // ohne Inhalt    
         }
-        
+
         draw(): void {
             // ohne Inhalt    
         }
-        
+
         move(): void {
             // ohne Inhalt    
         }
-        
-        checkPosition(): void {
-            // ohne Inhalt    
-        }
-        
-        
     } // class 
 } // namespace

@@ -19,9 +19,6 @@ var Dot;
         move() {
             // ohne Inhalt    
         }
-        checkPosition() {
-            // ohne Inhalt    
-        }
     }
     Dot.SuperClass = SuperClass; // class 
 })(Dot || (Dot = {})); // namespace
