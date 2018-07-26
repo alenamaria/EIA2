@@ -26,19 +26,18 @@ var Dot;
         Dot.canvas = document.getElementsByTagName("canvas")[0];
         Dot.crc2 = Dot.canvas.getContext("2d");
         // Hintergrund des Spiels
-        // environment();
         setBackground();
         // Hintergrund in einer Variablen speichern
         imgData = Dot.crc2.getImageData(0, 0, Dot.canvas.width, Dot.canvas.height);
         // Aufruf der animate-Funktion
         animate();
         // Erzeugen der Vierrecke
-        for (let i = 0; i < 4; i++) {
+        for (let i = 0; i < 5; i++) {
             let square = new Dot.Square();
             Dot.opponents.push(square);
         }
         // Erzeugen der Dreiecke
-        for (let i = 0; i < 2; i++) {
+        for (let i = 0; i < 3; i++) {
             let triangle = new Dot.Triangle();
             Dot.opponents.push(triangle);
         }
@@ -89,7 +88,6 @@ var Dot;
     function moveObjects() {
         for (let i = 0; i < Dot.superclass.length; i++) {
             Dot.superclass[i].move();
-            Dot.superclass[i].checkPosition();
         }
         for (let i = 0; i < Dot.opponents.length; i++) {
             Dot.opponents[i].checkPositionSquare();

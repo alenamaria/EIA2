@@ -40,7 +40,16 @@ namespace Dot {
 
             crc2.strokeStyle = "transparent";
             crc2.stroke();
-            
+
+            for (let i: number = 0; i < opponents.length; i++) {
+                if (crc2.isPointInPath(opponents[i].x + 50, opponents[i].y) || crc2.isPointInPath(opponents[i].x, opponents[i].y)) {
+                    window.alert("GAME OVER");
+                    if (window.alert) {
+                        location.reload();
+                    }
+                }
+            }
+
             //console.log(this.y);
         } // draw
 
@@ -70,20 +79,5 @@ namespace Dot {
                 this.gravitySpeed = 0;
             }
         } // topBorder
-
-        // checkPosition-Funktion - überprüft, ob der springende Punkt an der gleichen Position wie der Gegner ist
-        checkPosition(): void {
-            for (let i: number = 0; i < opponents.length; i++) {
-                if (this.y <= opponents[i].y + 25 && this.y >= opponents[i].y - 25 && this.x <= opponents[i].x + 25 && this.x >= opponents[i]. x - 25) {
-                    
-                    // Alert-Box mit der Benachrichtigung "GAME OVER"
-                    window.alert("GAME OVER");
-                    
-                    if (window.alert) {
-                        location.reload();    
-                    }
-                }
-            }
-        } // checkPosition     
     } // class
 } // namespace

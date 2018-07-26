@@ -37,7 +37,6 @@ namespace Dot {
         crc2 = canvas.getContext("2d");
 
         // Hintergrund des Spiels
-        // environment();
         setBackground();
 
         // Hintergrund in einer Variablen speichern
@@ -47,13 +46,13 @@ namespace Dot {
         animate();
 
         // Erzeugen der Vierrecke
-        for (let i: number = 0; i < 4; i++) {
+        for (let i: number = 0; i < 5; i++) {
             let square: Square = new Square();
             opponents.push(square);
         }
 
         // Erzeugen der Dreiecke
-        for (let i: number = 0; i < 2; i++) {
+        for (let i: number = 0; i < 3; i++) {
             let triangle: Triangle = new Triangle();
             opponents.push(triangle);
         }
@@ -117,7 +116,6 @@ namespace Dot {
     function moveObjects(): void {
         for (let i: number = 0; i < superclass.length; i++) {
             superclass[i].move();
-            superclass[i].checkPosition();
         }
 
         for (let i: number = 0; i < opponents.length; i++) {
@@ -134,21 +132,21 @@ namespace Dot {
             location.reload();
         }
     } // gratulation
-    
+
     function setBackground(): void {
-            let b: number = Math.floor(Math.random() * 4);
-            switch (b) {
-                case 0:
-                    environmentBlue();
-                    break;
-                case 1:
-                    environmentYellow();
-                    break;
-                case 2:
-                    environmentGreen();
-                    break;
-                case 3:
-                    environmentPurple();
-            } // switch   
-        } // setBackground
+        let b: number = Math.floor(Math.random() * 4);
+        switch (b) {
+            case 0:
+                environmentBlue();
+                break;
+            case 1:
+                environmentYellow();
+                break;
+            case 2:
+                environmentGreen();
+                break;
+            case 3:
+                environmentPurple();
+        } // switch   
+    } // setBackground
 } // namespace
