@@ -1,15 +1,15 @@
 namespace Dot {
-    export function environment(): void {
-        floor();
-        background();
-        hill_1(75, 550);
-        hill_2(160, 550);
-        hill_2(630, 550);
-        hill_2(830, 550);
-        hill_1(715, 550);
+    export function environmentYellow(): void {
+        floorNormalYellow();
+        backgroundYellow();
+        hill_1_Yellow(75, 550);
+        hill_2_Yellow(160, 550);
+        hill_2_Yellow(630, 550);
+        hill_2_Yellow(830, 550);
+        hill_1_Yellow(715, 550);
     }
     
-    function floor(): void {
+    function floorNormalYellow(): void {
 
         let gradient: CanvasGradient = crc2.createLinearGradient(350, 550, 350, 700);
         gradient.addColorStop(0, "#999999");
@@ -29,10 +29,10 @@ namespace Dot {
         crc2.stroke();
     }
 
-    function background(): void {
+    function backgroundYellow(): void {
         let gradient: CanvasGradient = crc2.createLinearGradient(350, 0, 350, 550);
-        gradient.addColorStop(0, "#247d87");
-        gradient.addColorStop(1, "#c3d8db");
+        gradient.addColorStop(0, "#ffeaaf");
+        gradient.addColorStop(1, "#fff0c4");
 
         crc2.fillStyle = gradient;
 
@@ -49,9 +49,9 @@ namespace Dot {
         crc2.stroke();
     }
 
-    function hill_1(_x: number, _y: number): void {
+    function hill_1_Yellow(_x: number, _y: number): void {
 
-        crc2.fillStyle = "rgb(4, 123, 140, 0.7)";
+        crc2.fillStyle = "rgb(255, 180, 43, 0.7)";
 
         // x=75 und y=550
 
@@ -68,9 +68,9 @@ namespace Dot {
         crc2.stroke();
     }
 
-    function hill_2(_x: number, _y: number): void {
+    function hill_2_Yellow(_x: number, _y: number): void {
 
-        crc2.fillStyle = "rgb(63, 106, 112, 0.7)";
+        crc2.fillStyle = "rgb(252, 196, 100, 0.7)";
 
         crc2.beginPath();
         crc2.moveTo(_x, _y);

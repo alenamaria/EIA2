@@ -26,7 +26,8 @@ var Dot;
         Dot.canvas = document.getElementsByTagName("canvas")[0];
         Dot.crc2 = Dot.canvas.getContext("2d");
         // Hintergrund des Spiels
-        Dot.environment();
+        // environment();
+        setBackground();
         // Hintergrund in einer Variablen speichern
         imgData = Dot.crc2.getImageData(0, 0, Dot.canvas.width, Dot.canvas.height);
         // Aufruf der animate-Funktion
@@ -95,11 +96,28 @@ var Dot;
             Dot.opponents[i].move();
         }
     } // moveObjects
+    // gratulation-Funktion - Alert-Box erscheint nach 40 Sekunden
     function gratulation() {
         window.alert("Congratulation - You've won!\nWanna play again? Let's go!");
         if (window.alert) {
             location.reload();
         }
     } // gratulation
+    function setBackground() {
+        let b = Math.floor(Math.random() * 4);
+        switch (b) {
+            case 0:
+                Dot.environmentBlue();
+                break;
+            case 1:
+                Dot.environmentYellow();
+                break;
+            case 2:
+                Dot.environmentGreen();
+                break;
+            case 3:
+                Dot.environmentPurple();
+        } // switch   
+    } // setBackground
 })(Dot || (Dot = {})); // namespace
 //# sourceMappingURL=Abschlussaufgabe.js.map

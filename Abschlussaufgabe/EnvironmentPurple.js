@@ -1,16 +1,16 @@
 var Dot;
 (function (Dot) {
-    function environment() {
-        floor();
-        background();
-        hill_1(75, 550);
-        hill_2(160, 550);
-        hill_2(630, 550);
-        hill_2(830, 550);
-        hill_1(715, 550);
+    function environmentPurple() {
+        floorNormalPurple();
+        backgroundPurple();
+        hill_1_Purple(75, 550);
+        hill_2_Purple(160, 550);
+        hill_2_Purple(630, 550);
+        hill_2_Purple(830, 550);
+        hill_1_Purple(715, 550);
     }
-    Dot.environment = environment;
-    function floor() {
+    Dot.environmentPurple = environmentPurple;
+    function floorNormalPurple() {
         let gradient = Dot.crc2.createLinearGradient(350, 550, 350, 700);
         gradient.addColorStop(0, "#999999");
         gradient.addColorStop(1, "#383838");
@@ -25,10 +25,10 @@ var Dot;
         Dot.crc2.strokeStyle = "transparent";
         Dot.crc2.stroke();
     }
-    function background() {
+    function backgroundPurple() {
         let gradient = Dot.crc2.createLinearGradient(350, 0, 350, 550);
-        gradient.addColorStop(0, "#247d87");
-        gradient.addColorStop(1, "#c3d8db");
+        gradient.addColorStop(0, "#b280a0");
+        gradient.addColorStop(1, "#ddc7d5");
         Dot.crc2.fillStyle = gradient;
         Dot.crc2.beginPath();
         Dot.crc2.moveTo(0, 0);
@@ -41,8 +41,8 @@ var Dot;
         Dot.crc2.strokeStyle = "transparent";
         Dot.crc2.stroke();
     }
-    function hill_1(_x, _y) {
-        Dot.crc2.fillStyle = "rgb(4, 123, 140, 0.7)";
+    function hill_1_Purple(_x, _y) {
+        Dot.crc2.fillStyle = "rgb(178, 99, 149, 0.7)";
         // x=75 und y=550
         Dot.crc2.beginPath();
         Dot.crc2.moveTo(_x, _y);
@@ -55,8 +55,8 @@ var Dot;
         Dot.crc2.strokeStyle = "transparent";
         Dot.crc2.stroke();
     }
-    function hill_2(_x, _y) {
-        Dot.crc2.fillStyle = "rgb(63, 106, 112, 0.7)";
+    function hill_2_Purple(_x, _y) {
+        Dot.crc2.fillStyle = "rgb(142, 97, 126, 0.7)";
         Dot.crc2.beginPath();
         Dot.crc2.moveTo(_x, _y);
         Dot.crc2.lineTo(_x, _y - 100);
@@ -69,4 +69,4 @@ var Dot;
         Dot.crc2.stroke();
     }
 })(Dot || (Dot = {}));
-//# sourceMappingURL=Environment.js.map
+//# sourceMappingURL=EnvironmentPurple.js.map

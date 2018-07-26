@@ -37,7 +37,8 @@ namespace Dot {
         crc2 = canvas.getContext("2d");
 
         // Hintergrund des Spiels
-        environment();
+        // environment();
+        setBackground();
 
         // Hintergrund in einer Variablen speichern
         imgData = crc2.getImageData(0, 0, canvas.width, canvas.height);
@@ -126,10 +127,28 @@ namespace Dot {
         }
     } // moveObjects
 
+    // gratulation-Funktion - Alert-Box erscheint nach 40 Sekunden
     function gratulation(): void {
         window.alert("Congratulation - You've won!\nWanna play again? Let's go!");
         if (window.alert) {
             location.reload();
         }
     } // gratulation
+    
+    function setBackground(): void {
+            let b: number = Math.floor(Math.random() * 4);
+            switch (b) {
+                case 0:
+                    environmentBlue();
+                    break;
+                case 1:
+                    environmentYellow();
+                    break;
+                case 2:
+                    environmentGreen();
+                    break;
+                case 3:
+                    environmentPurple();
+            } // switch   
+        } // setBackground
 } // namespace
