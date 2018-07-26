@@ -1,5 +1,12 @@
+/*  Aufgabe: Abschlussaufgabe
+    Name: Alena Hurst
+    Matrikel: 257742
+    Datum: 29.07.18
+    
+    Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde nicht kopiert und auch nicht diktiert.*/
 var Dot;
 (function (Dot) {
+    // Funktionsaufrufe der einzelnen Funktionen
     function environmentPurple() {
         floorNormalPurple();
         backgroundPurple();
@@ -10,7 +17,9 @@ var Dot;
         hill_1_Purple(715, 550);
     }
     Dot.environmentPurple = environmentPurple;
+    // floorNormalPurple-Funktion - zeichnet den Boden
     function floorNormalPurple() {
+        // Farbverlauf - Gradient
         let gradient = Dot.crc2.createLinearGradient(350, 550, 350, 700);
         gradient.addColorStop(0, "#999999");
         gradient.addColorStop(1, "#383838");
@@ -25,7 +34,9 @@ var Dot;
         Dot.crc2.strokeStyle = "transparent";
         Dot.crc2.stroke();
     }
+    // backgroundPurple-Funktion - zeichnet die Hintergrund-Fl�che
     function backgroundPurple() {
+        // Farbverlauf - Gradient
         let gradient = Dot.crc2.createLinearGradient(350, 0, 350, 550);
         gradient.addColorStop(0, "#b280a0");
         gradient.addColorStop(1, "#ddc7d5");
@@ -41,9 +52,9 @@ var Dot;
         Dot.crc2.strokeStyle = "transparent";
         Dot.crc2.stroke();
     }
+    // hill_1_Purple-Funktion - zeichnet den gr��eren H�gel im Hintergrund
     function hill_1_Purple(_x, _y) {
         Dot.crc2.fillStyle = "rgb(178, 99, 149, 0.7)";
-        // x=75 und y=550
         Dot.crc2.beginPath();
         Dot.crc2.moveTo(_x, _y);
         Dot.crc2.lineTo(_x, _y - 150);
@@ -55,6 +66,7 @@ var Dot;
         Dot.crc2.strokeStyle = "transparent";
         Dot.crc2.stroke();
     }
+    // hill_2_Purple-Funktion - zeichnet den kleineren H�gel im Hintergrund
     function hill_2_Purple(_x, _y) {
         Dot.crc2.fillStyle = "rgb(142, 97, 126, 0.7)";
         Dot.crc2.beginPath();
