@@ -64,7 +64,7 @@ namespace Dot {
 
         // navigateTop-Funktion - Bewegung des Dots nach oben
         function navigateTop(): void {
-            dot.gravity = -0.2;
+            dot.gravity = -0.1;
         }
 
         // Steuerung durch den Klick bzw. durch Touch, installieren von EventListener auf dem Canvas
@@ -73,7 +73,7 @@ namespace Dot {
 
         // navigateBottom-Funktion - Bewegung des Dots nach unten
         function navigateBottom(): void {
-            dot.gravity = 0.1;
+            dot.gravity = 0.06;
         }
 
         // Timeout - nach 40 Sekunden erscheint eine Meldung, dass man gewonnen hat
@@ -127,7 +127,7 @@ namespace Dot {
     } // moveObjects
 
     function gratulation(): void {
-        window.alert("CONGRATULATION");
+        window.alert("Congratulation - You've won!\nWanna play again? Let's go!");
         if (window.alert) {
             location.reload();
         }

@@ -47,14 +47,14 @@ var Dot;
         Dot.clickOnCanvas.addEventListener("touchstart", navigateTop);
         // navigateTop-Funktion - Bewegung des Dots nach oben
         function navigateTop() {
-            dot.gravity = -0.2;
+            dot.gravity = -0.1;
         }
         // Steuerung durch den Klick bzw. durch Touch, installieren von EventListener auf dem Canvas
         Dot.clickOnCanvas.addEventListener("mouseup", navigateBottom);
         Dot.clickOnCanvas.addEventListener("touchend", navigateBottom);
         // navigateBottom-Funktion - Bewegung des Dots nach unten
         function navigateBottom() {
-            dot.gravity = 0.1;
+            dot.gravity = 0.06;
         }
         // Timeout - nach 40 Sekunden erscheint eine Meldung, dass man gewonnen hat
         window.setTimeout(gratulation, 40000);
@@ -96,7 +96,7 @@ var Dot;
         }
     } // moveObjects
     function gratulation() {
-        window.alert("CONGRATULATION");
+        window.alert("Congratulation - You've won!\nWanna play again? Let's go!");
         if (window.alert) {
             location.reload();
         }
