@@ -11,6 +11,9 @@ var Dot;
     Dot.superclass = [];
     Dot.opponents = [];
     let imgData;
+    Dot.gameover2 = false;
+    // Variable, um abzufragen, ob das Spiel gerade l�uft
+    let gameRunning = false;
     // Erzeugen des springenden Punktes, der anschlie�end in das Array gepusht wird
     let dot = new Dot.Dot();
     Dot.superclass.push(dot);
@@ -18,13 +21,41 @@ var Dot;
     function init(_event) {
         document.getElementById("start").addEventListener("click", start);
         document.getElementById("dot").style.display = "none";
+        document.getElementById("gameover").style.display = "none";
+        document.getElementById("victory").style.display = "none";
     } // init
+    // gameover-Funktion - Anzeige, dass man verloren hat
+    function gameover(_event) {
+        document.getElementById("gameover").style.display = "block";
+        document.getElementById("startscreen").style.display = "none";
+        document.getElementById("dot").style.display = "none";
+        document.getElementById("victory").style.display = "none";
+        // gameRunning auf false festsetzen
+        gameRunning = false;
+        if (document.getElementById("gameover").style.display == "block") {
+            clearTimeout(Dot.timer);
+        }
+    }
+    Dot.gameover = gameover; // gameover
+    // gratulation-Funktion - Anzeige, dass man gewonnen hat
+    function gratulation(_event) {
+        document.getElementById("victory").style.display = "block";
+        document.getElementById("startscreen").style.display = "none";
+        document.getElementById("dot").style.display = "none";
+        document.getElementById("gameover").style.display = "none";
+        // gameRunning auf false festsetzen
+        gameRunning = false;
+    } // gratulation
     // start-Funktion - Spiel beginnt
     function start(_event) {
-        document.getElementById("startscreen").style.display = "none";
         document.getElementById("dot").style.display = "block";
+        document.getElementById("startscreen").style.display = "none";
+        document.getElementById("gameover").style.display = "none";
+        document.getElementById("victory").style.display = "none";
         Dot.canvas = document.getElementsByTagName("canvas")[0];
         Dot.crc2 = Dot.canvas.getContext("2d");
+        // gameRunning auf true festsetzen - Spiel l�uft
+        gameRunning = true;
         // Hintergrund des Spiels
         setBackground();
         // Hintergrund in einer Variablen speichern
@@ -57,8 +88,9 @@ var Dot;
             dot.gravity = 0.06;
         }
         // Timeout - nach 40 Sekunden erscheint eine Meldung, dass man gewonnen hat
-        window.setTimeout(gratulation, 40000);
+        Dot.timer = window.setTimeout(gratulation, 40000);
     }
+    Dot.start = start;
     // animate-Funktion
     function animate() {
         // Timeout
@@ -66,10 +98,13 @@ var Dot;
         // Canvas leeren und neu zeichnen lassen
         Dot.crc2.clearRect(0, 0, Dot.crc2.canvas.width, Dot.crc2.canvas.height);
         Dot.crc2.putImageData(imgData, 0, 0);
-        // Aufruf der drawObjects-, moveObjects- und newPosition-Funktion
-        drawObjects();
-        moveObjects();
-        newPosition();
+        // Wenn gameRunning false zur�ck gibt, dann sollen weder die draw- noch die move
+        if (gameRunning) {
+            // Aufruf der drawObjects-, moveObjects- und newPosition-Funktion
+            drawObjects();
+            moveObjects();
+            newPosition();
+        }
     } // animate
     // drawObjects-Funktion
     function drawObjects() {
@@ -94,13 +129,6 @@ var Dot;
             Dot.opponents[i].move();
         }
     } // moveObjects
-    // gratulation-Funktion - Alert-Box erscheint nach 40 Sekunden
-    function gratulation() {
-        window.alert("Congratulation - You've won!\nWanna play again? Let's go!");
-        if (window.alert) {
-            location.reload();
-        }
-    } // gratulation
     function setBackground() {
         let b = Math.floor(Math.random() * 4);
         switch (b) {

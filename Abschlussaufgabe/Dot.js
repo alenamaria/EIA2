@@ -34,13 +34,16 @@ var Dot;
             Dot_1.crc2.stroke();
             for (let i = 0; i < Dot_1.opponents.length; i++) {
                 if (Dot_1.crc2.isPointInPath(Dot_1.opponents[i].x + 50, Dot_1.opponents[i].y) || Dot_1.crc2.isPointInPath(Dot_1.opponents[i].x, Dot_1.opponents[i].y)) {
-                    window.alert("GAME OVER");
-                    if (window.alert) {
-                        location.reload();
+                    document.getElementById("gameover").style.display = "block";
+                    document.getElementById("dot").style.display = "none";
+                    document.getElementById("startscreen").style.display = "none";
+                    document.getElementById("victory").style.display = "none";
+                    Dot_1.gameover2 = true;
+                    if (Dot_1.gameover2 == true) {
+                        clearTimeout(Dot_1.timer);
                     }
                 }
             }
-            //console.log(this.y);
         } // draw
         // setNewPosition-Funktion, unter anderem Aufruf der Funktionen "bottomBorder" und "topBorder"
         setNewPosition() {

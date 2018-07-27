@@ -18,6 +18,13 @@ namespace Dot {
     export let opponents: Square[] = [];
     let imgData: ImageData;
 
+    // Variable für den Timer, damit dieser im Falle eines Game Overs gestoppt werden kann
+    export let timer: number;
+    export let gameover2: boolean = false;
+
+    // Variable, um abzufragen, ob das Spiel gerade läuft
+    let gameRunning: boolean = false;
+
     // Erzeugen des springenden Punktes, der anschließend in das Array gepusht wird
     let dot: Dot = new Dot();
     superclass.push(dot);
@@ -26,15 +33,46 @@ namespace Dot {
     function init(_event: Event): void {
         document.getElementById("start").addEventListener("click", start);
         document.getElementById("dot").style.display = "none";
+        document.getElementById("gameover").style.display = "none";
+        document.getElementById("victory").style.display = "none";
     } // init
 
-    // start-Funktion - Spiel beginnt
-    function start(_event: Event): void {
+    // gameover-Funktion - Anzeige, dass man verloren hat
+    export function gameover(_event: Event): void {
+        document.getElementById("gameover").style.display = "block";
         document.getElementById("startscreen").style.display = "none";
+        document.getElementById("dot").style.display = "none";
+        document.getElementById("victory").style.display = "none";
+        // gameRunning auf false festsetzen
+        gameRunning = false;
+
+        if (document.getElementById("gameover").style.display == "block") {
+            clearTimeout(timer);
+        }
+    } // gameover
+
+    // gratulation-Funktion - Anzeige, dass man gewonnen hat
+    function gratulation(_event: Event): void {
+        document.getElementById("victory").style.display = "block";
+        document.getElementById("startscreen").style.display = "none";
+        document.getElementById("dot").style.display = "none";
+        document.getElementById("gameover").style.display = "none";
+        // gameRunning auf false festsetzen
+        gameRunning = false;
+    } // gratulation
+
+    // start-Funktion - Spiel beginnt
+    export function start(_event: Event): void {
         document.getElementById("dot").style.display = "block";
+        document.getElementById("startscreen").style.display = "none";
+        document.getElementById("gameover").style.display = "none";
+        document.getElementById("victory").style.display = "none";
 
         canvas = document.getElementsByTagName("canvas")[0];
         crc2 = canvas.getContext("2d");
+
+        // gameRunning auf true festsetzen - Spiel läuft
+        gameRunning = true;
 
         // Hintergrund des Spiels
         setBackground();
@@ -77,7 +115,7 @@ namespace Dot {
         }
 
         // Timeout - nach 40 Sekunden erscheint eine Meldung, dass man gewonnen hat
-        window.setTimeout(gratulation, 40000);
+        timer = window.setTimeout(gratulation, 40000);
     }
 
     // animate-Funktion
@@ -90,10 +128,15 @@ namespace Dot {
         crc2.clearRect(0, 0, crc2.canvas.width, crc2.canvas.height);
         crc2.putImageData(imgData, 0, 0);
 
-        // Aufruf der drawObjects-, moveObjects- und newPosition-Funktion
-        drawObjects();
-        moveObjects();
-        newPosition();
+        // Wenn gameRunning false zurück gibt, dann sollen weder die draw- noch die move
+        if (gameRunning) {
+            // Aufruf der drawObjects-, moveObjects- und newPosition-Funktion
+            drawObjects();
+            moveObjects();
+            newPosition();
+        }
+
+
     } // animate
 
     // drawObjects-Funktion
@@ -114,6 +157,8 @@ namespace Dot {
 
     // MoveObjects-Funktion
     function moveObjects(): void {
+
+
         for (let i: number = 0; i < superclass.length; i++) {
             superclass[i].move();
         }
@@ -124,14 +169,6 @@ namespace Dot {
 
         }
     } // moveObjects
-
-    // gratulation-Funktion - Alert-Box erscheint nach 40 Sekunden
-    function gratulation(): void {
-        window.alert("Congratulation - You've won!\nWanna play again? Let's go!");
-        if (window.alert) {
-            location.reload();
-        }
-    } // gratulation
 
     function setBackground(): void {
         let b: number = Math.floor(Math.random() * 4);

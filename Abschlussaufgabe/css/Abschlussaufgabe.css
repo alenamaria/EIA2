@@ -1,8 +1,13 @@
 @import url('https://fonts.googleapis.com/css?family=Nunito');
+
 canvas {
 	display: block;
 	margin: auto;
 	margin-top: 2em;
+}
+
+p {
+	line-height: 1em;
 }
 
 div {
@@ -17,6 +22,7 @@ div {
 	padding-bottom: 2em;
 	margin-top: 2em;
 	box-shadow: 10px 10px 15px black;
+	border-radius: 7px;
 }
 
 body {
@@ -31,6 +37,8 @@ button {
 	height: 2em;
 	border: none;
 	cursor: pointer;
+	border-radius: 3px;
+	box-shadow: 5px 5px 3px silver;
 }
 
 button:hover {
@@ -43,7 +51,7 @@ img {
 	margin: auto;
 }
 
-@media screen and (min-width: 0px){
+@media screen and (min-width: 0px) {
 	img {
 		width: 100%;
 	}

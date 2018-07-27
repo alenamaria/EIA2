@@ -43,14 +43,17 @@ namespace Dot {
 
             for (let i: number = 0; i < opponents.length; i++) {
                 if (crc2.isPointInPath(opponents[i].x + 50, opponents[i].y) || crc2.isPointInPath(opponents[i].x, opponents[i].y)) {
-                    window.alert("GAME OVER");
-                    if (window.alert) {
-                        location.reload();
+                    document.getElementById("gameover").style.display = "block";
+                    document.getElementById("dot").style.display = "none";
+                    document.getElementById("startscreen").style.display = "none";
+                    document.getElementById("victory").style.display = "none";
+                    gameover2 = true;
+
+                    if (gameover2 == true) {
+                        clearTimeout(timer);
                     }
                 }
             }
-
-            //console.log(this.y);
         } // draw
 
         // setNewPosition-Funktion, unter anderem Aufruf der Funktionen "bottomBorder" und "topBorder"

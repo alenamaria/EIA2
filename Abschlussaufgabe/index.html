@@ -8,13 +8,11 @@
 <script src="Square.js" type="text/javascript" charset="utf-8"></script>
 <script src="Triangle.js" type="text/javascript" charset="utf-8"></script>
 <script src="EnvironmentBlue.js" type="text/javascript" charset="utf-8"></script>
-<script src="EnvironmentYellow.js" type="text/javascript"
-	charset="utf-8"></script>
+<script src="EnvironmentYellow.js" type="text/javascript" charset="utf-8"></script>
 <script src="EnvironmentGreen.js" type="text/javascript" charset="utf-8"></script>
-<script src="EnvironmentPurple.js" type="text/javascript"
-	charset="utf-8"></script>
+<script src="EnvironmentPurple.js" type="text/javascript" charset="utf-8"></script>
 <script src="Abschlussaufgabe.js" type="text/javascript" charset="utf-8"></script>
-
+<meta name="viewport" content="user-scalable=no"/>
 <link rel="stylesheet" type="text/css" href="css/Abschlussaufgabe.css">
 </head>
 <body>
@@ -23,6 +21,21 @@
 		<button id="start">Start Game</button>
 	</div>
 	<canvas id="dot" width=1000 height=700></canvas>
+	<div id="gameover">
+		<h2>GAME OVER</h2>
+		<p>Not bad! You'll manage next time.</p>
+		<a href="javascript:window.location.href=window.location.href">
+		<button id="startAgain">Try again</button>
+		</a>
+	</div>
+	<div id="victory">
+		<h2>YOU WON</h2>
+		<p>You want to play again?</p>
+		<p>So, what are you waiting for?</p>
+		<a href="javascript:window.location.href=window.location.href">
+		<button id="startAgain2">Play again</button>
+		</a>
+	</div>
 	<audio id="audio" autoplay>
 		<source src="sound/Buddy.mp3" type="audio/mpeg">
 	</audio>
