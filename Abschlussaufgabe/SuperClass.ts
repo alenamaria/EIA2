@@ -13,11 +13,7 @@ namespace Dot {
         constructor() {
             // ohne Inhalt    
         }
-
-        checkPositionSquare(): void {
-            // ohne Inhalt    
-        }
-
+        
         draw(): void {
             // ohne Inhalt    
         }
