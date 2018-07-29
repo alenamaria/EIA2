@@ -19,7 +19,7 @@ namespace Dot {
         // chekcPositionSquare-Funktion
         checkPositionSquare(): void {
             if (this.x < -50) {
-                this.setNewRandomSpawnPoint();
+                this.setRandomSpawnPoint();
                 this.setRandomColor();
             }
         } // checkPositionSquare
@@ -51,12 +51,6 @@ namespace Dot {
             this.x = Math.random() * ((crc2.canvas.width + 1000) - (crc2.canvas.width)) + (crc2.canvas.width);
             this.y = 510;
         } // setRandomSpawnPoint
-
-        // setNewRandomSpawnPoint-Funktion
-        setNewRandomSpawnPoint(): void {
-            this.x = Math.random() * ((crc2.canvas.width + 1000) - (crc2.canvas.width)) + (crc2.canvas.width);
-            this.y = 510;
-        } // setNewRandomSpawnPoint
 
         // setRandomColor-Funktion - zufällige Farbe der Vierecke
         setRandomColor(): void {

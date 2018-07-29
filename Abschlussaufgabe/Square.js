@@ -16,7 +16,7 @@ var Dot;
         // chekcPositionSquare-Funktion
         checkPositionSquare() {
             if (this.x < -50) {
-                this.setNewRandomSpawnPoint();
+                this.setRandomSpawnPoint();
                 this.setRandomColor();
             }
         } // checkPositionSquare
@@ -43,11 +43,6 @@ var Dot;
             this.x = Math.random() * ((Dot.crc2.canvas.width + 1000) - (Dot.crc2.canvas.width)) + (Dot.crc2.canvas.width);
             this.y = 510;
         } // setRandomSpawnPoint
-        // setNewRandomSpawnPoint-Funktion
-        setNewRandomSpawnPoint() {
-            this.x = Math.random() * ((Dot.crc2.canvas.width + 1000) - (Dot.crc2.canvas.width)) + (Dot.crc2.canvas.width);
-            this.y = 510;
-        } // setNewRandomSpawnPoint
         // setRandomColor-Funktion - zuf�llige Farbe der Vierecke
         setRandomColor() {
             let c = Math.floor(Math.random() * 3);
