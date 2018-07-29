@@ -63,7 +63,7 @@ var Dot;
         } // bottomBorder
         // topBorder-Funktion - obere Grenze, die der springende Punkt nicht �berschreiten darf
         topBorder() {
-            let bordertop = 300;
+            let bordertop = 375;
             if (this.y < bordertop) {
                 this.y = bordertop;
                 this.gravitySpeed = 0;

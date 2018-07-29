@@ -76,7 +76,7 @@ namespace Dot {
 
         // topBorder-Funktion - obere Grenze, die der springende Punkt nicht überschreiten darf
         topBorder(): void {
-            let bordertop: number = 300;
+            let bordertop: number = 375;
             if (this.y < bordertop) {
                 this.y = bordertop;
                 this.gravitySpeed = 0;
